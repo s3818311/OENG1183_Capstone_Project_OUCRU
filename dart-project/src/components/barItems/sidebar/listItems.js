@@ -1,12 +1,12 @@
 import * as React from 'react';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
+import FindInPageIcon from '@mui/icons-material/FindInPage';
 import PropTypes from 'prop-types';
 
 import { Link as RouterLink } from 'react-router-dom';
@@ -40,9 +40,10 @@ ListItemLink.propTypes = {
 
 export const mainListItems = (
     <React.Fragment>
-       <ListItemLink to="/" primary="Dashboard" icon={<DashboardIcon />} />
-       <ListItemLink to="/view2" primary="Orders" icon={<ShoppingCartIcon/>} />
-       <ListItemLink to="/view3" primary="Customers" icon={<PeopleIcon/>} />
+       <ListItemLink to="/" primary="Overview" icon={<DashboardIcon />} />
+       <ListItemLink to="/view2" primary="Tab 1" icon={<PeopleIcon/>} />
+       <ListItemLink to="/view2" primary="Tab 2" icon={<PeopleIcon/>} />
+       <ListItemLink to="/view2" primary="Guide" icon={<FindInPageIcon/>} />
     </React.Fragment>
   );
 
@@ -51,8 +52,8 @@ export const secondaryListItems = (
       <ListSubheader component="div" inset>
         Saved reports
       </ListSubheader>
-      <ListItemLink to="/view3" primary="Current month" icon={<AssignmentIcon />} />
-      <ListItemLink to="/view3" primary="Last quarter" icon={<AssignmentIcon/>} />
-      <ListItemLink to="/view3" primary="Year-end sale" icon={<AssignmentIcon/>} />
+      <ListItemLink to="/view3" primary="Report 1" icon={<AssignmentIcon />} />
+      <ListItemLink to="/view3" primary="Report 2" icon={<AssignmentIcon/>} />
+      <ListItemLink to="/view3" primary="Report 3" icon={<AssignmentIcon/>} />
     </React.Fragment>
 );

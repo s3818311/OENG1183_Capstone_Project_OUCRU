@@ -1,9 +1,0 @@
-
-@use '../variables' as v;
-@use '../base';
-
-
-.test {
-    color: v.$base-color;
-    font-size: 16px;
-}

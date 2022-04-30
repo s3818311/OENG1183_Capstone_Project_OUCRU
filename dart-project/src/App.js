@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/views/_test.scss';
 import Footer from './components/global/Footer';
 import Dashboard from './views/Dashboard';
 

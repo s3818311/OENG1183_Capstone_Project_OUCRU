@@ -11,7 +11,17 @@ import { StaticRouter } from 'react-router-dom/server';
 import PropTypes from 'prop-types';
 import navigationRoutes from '../routes/NavigationRoutes';
 
-const mdTheme = createTheme();
+const mdTheme = createTheme({
+    components: {
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    fontSize: 16,
+                }
+            }
+        }
+    }
+});
 
 function Router(props) {
     const { children } = props;
