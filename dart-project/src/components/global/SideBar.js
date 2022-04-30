@@ -4,7 +4,7 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { mainListItems , secondaryListItems } from '../barItems/sidebar/listItems';
+import { mainListItems , secondaryListItems } from '../barItems/sidebar/ListItems';
 import Drawer from '../barItems/sidebar/Drawer';
 
 const SideBar = (props) => {

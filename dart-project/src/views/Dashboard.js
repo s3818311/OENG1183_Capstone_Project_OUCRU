@@ -15,13 +15,16 @@ const mdTheme = createTheme({
     components: {
         MuiTypography: {
             styleOverrides: {
-                root: {
-                    fontSize: 16,
+                h1: {
+                    fontSize: 23,
+                    fontWeight: 600,
                 }
             }
         }
     }
 });
+
+// const mdTheme = createTheme();
 
 function Router(props) {
     const { children } = props;
