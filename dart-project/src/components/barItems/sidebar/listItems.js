@@ -10,9 +10,11 @@ import FindInPageIcon from '@mui/icons-material/FindInPage';
 import PropTypes from 'prop-types';
 
 import { Link as RouterLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function ListItemLink(props) {
   const { icon, primary, to } = props;
+  const location = useLocation();
 
   const renderLink = React.useMemo(
     () =>
@@ -24,7 +26,7 @@ function ListItemLink(props) {
 
   return (
     <li>
-      <ListItem button component={renderLink}>
+      <ListItem button component={renderLink} selected={to === location.pathname}>
         {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
         <ListItemText primary={primary} />
       </ListItem>
@@ -42,8 +44,8 @@ export const mainListItems = (
     <React.Fragment>
        <ListItemLink to="/" primary="Overview" icon={<DashboardIcon />} />
        <ListItemLink to="/view2" primary="Tab 1" icon={<PeopleIcon/>} />
-       <ListItemLink to="/view2" primary="Tab 2" icon={<PeopleIcon/>} />
-       <ListItemLink to="/view2" primary="Guide" icon={<FindInPageIcon/>} />
+       <ListItemLink to="/view3" primary="Tab 2" icon={<PeopleIcon/>} />
+       <ListItemLink to="/guide" primary="Guide" icon={<FindInPageIcon/>} />
     </React.Fragment>
   );
 
