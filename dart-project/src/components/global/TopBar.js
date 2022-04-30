@@ -4,13 +4,12 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '../barItems/topbar/AppBar';
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
+import Badge from '@mui/material/Badge';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 function TopBar(props) {
-  
-
   return(
       <AppBar position="absolute" open={props.open}>
         <Toolbar
@@ -40,14 +39,28 @@ function TopBar(props) {
             Dashboard
           </Typography>
           
-          <Box sx={{ flexGrow: 0 }}>
+
+          
+            <Tooltip title="Notifications">
+              <IconButton color="inherit" sx={{me: 5}}>
+                <Badge badgeContent={4} color="secondary">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+            </Tooltip>
             <Tooltip title="Account Settings">
-              <IconButton sx={{ p: 0 }}>
-                <Avatar alt="M" src="/static/images/avatar/2.jpg" />
+              <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  color="inherit"
+                >
+                  <AccountCircle />
               </IconButton>
             </Tooltip>
             
-          </Box>
+        
           
         </Toolbar>
       </AppBar>
