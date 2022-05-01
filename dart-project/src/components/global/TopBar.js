@@ -16,7 +16,7 @@ function TopBar(props) {
           sx={{
             pr: '24px', // keep right padding when drawer closed
           }}
-        >
+        > 
           <IconButton
             edge="start"
             color="inherit"
@@ -39,31 +39,26 @@ function TopBar(props) {
             Dashboard
           </Typography>
           
-
-          
-            <Tooltip title="Notifications">
-              <IconButton color="inherit" sx={{me: 5}}>
-                <Badge badgeContent={4} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Account Settings">
-              <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  color="inherit"
-                >
-                  <AccountCircle />
-              </IconButton>
-            </Tooltip>
-            
-        
-          
+          <Tooltip title="Notifications">
+            <IconButton color="inherit" sx={{me: 5}}>
+              <Badge badgeContent={1} color="secondary">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Account Settings">
+            <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <AccountCircle />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
-      </AppBar>
+      </AppBar> 
   );
 }
 
