@@ -9,7 +9,7 @@ import { Suspense } from "react";
 import { Routes, MemoryRouter } from "react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
 import PropTypes from "prop-types";
-import navigationRoutes from "../routes/NavigationRoutes";
+import NavigationRoutes from "../routes/NavigationRoutes";
 
 const mdTheme = createTheme({
   components: {
@@ -58,7 +58,7 @@ function DashboardContent() {
         <Suspense fallback={<div></div>}>
           <Router>
             <SideBar open={open} toggleDrawer={toggleDrawer} />
-            <Routes>{navigationRoutes}</Routes>
+            <Routes>{NavigationRoutes}</Routes>
           </Router>
         </Suspense>
       </Box>

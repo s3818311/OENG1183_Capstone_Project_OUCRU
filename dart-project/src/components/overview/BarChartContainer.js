@@ -1,10 +1,24 @@
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { ResponsiveBar } from "@nivo/bar";
+import Typography from "@mui/material/Typography";
 
 const barData = require("../../tempdata/bar.json");
 
-const OverviewBar = () => (
+const BarTitle = () => {
+  return (
+    <Typography
+      variant="h6"
+      color="black"
+      align="center"
+      sx={{ marginTop: 1, marginBottom: -5 }}
+    >
+      Bar Chart Title
+    </Typography>
+  );
+};
+
+const OverviewBarChart = () => (
   <ResponsiveBar
     data={barData}
     keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
@@ -101,10 +115,19 @@ const OverviewBar = () => (
       },
     ]}
     role="application"
-    ariaLabel="Nivo bar chart demo"
+    ariaLabel="Bar Chart"
     barAriaLabel={function (e) {
       return e.id + ": " + e.formattedValue + " in country: " + e.indexValue;
     }}
+    layers={[
+      "grid",
+      "axes",
+      "bars",
+      "markers",
+      "legends",
+      "annotations",
+      // Title,
+    ]}
   />
 );
 
@@ -117,7 +140,8 @@ const BarChartContainer = (props) => {
           height: 600,
         }}
       >
-        <OverviewBar />
+        <BarTitle />
+        <OverviewBarChart />
       </Paper>
     </Grid>
   );

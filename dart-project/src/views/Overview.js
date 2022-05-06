@@ -2,9 +2,9 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
 import BarChartContainer from "../components/overview/BarChartContainer";
-import ChoroplethChartContainer from "../components/overview/ChoroplethChartContainer";
+import HCMChoroplethContainer from "../components/overview/HCMChoroplethContainer";
+import LineChartContainer from "../components/overview/LineChartContainer";
 
 const Overview = () => {
   return (
@@ -23,15 +23,10 @@ const Overview = () => {
       <Toolbar />
       <Box sx={{ mt: 4, mb: 4, ml: 3, mr: 3 }}>
         <Grid container spacing={3}>
-          <BarChartContainer xs={12} md={7} lg={7} />
+          <BarChartContainer xs={12} md={12} lg={6} />
+          <LineChartContainer xs={12} md={12} lg={6} />
 
-          <ChoroplethChartContainer xs={12} md={5} lg={5} />
-
-          <Grid item xs={12}>
-            <Paper
-              sx={{ p: 2, display: "flex", flexDirection: "column" }}
-            ></Paper>
-          </Grid>
+          <HCMChoroplethContainer xs={12} md={12} lg={12} />
         </Grid>
       </Box>
     </Box>
