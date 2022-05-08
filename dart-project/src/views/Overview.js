@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import BarChartContainer from "../components/overview/BarChartContainer";
 import HCMChoroplethContainer from "../components/overview/HCMChoroplethContainer";
 import LineChartContainer from "../components/overview/LineChartContainer";
+import MyMap from "../components/overview/TempMap";
 
 const Overview = () => {
   return (
@@ -26,7 +27,7 @@ const Overview = () => {
           <BarChartContainer xs={12} md={12} lg={6} />
           <LineChartContainer xs={12} md={12} lg={6} />
 
-          <HCMChoroplethContainer xs={12} md={12} lg={12} />
+          <MyMap />
         </Grid>
       </Box>
     </Box>
