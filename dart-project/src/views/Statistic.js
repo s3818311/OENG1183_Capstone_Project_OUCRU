@@ -2,7 +2,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
-import HCMChoroplethContainer from "../components/overview/HCMChoroplethContainer";
+import BarChartContainer from "../components/overview/BarChartContainer";
+import LineChartContainer from "../components/overview/LineChartContainer";
 
 const Overview = () => {
   return (
@@ -21,7 +22,8 @@ const Overview = () => {
       <Toolbar />
       <Box sx={{ mt: 4, mb: 4, ml: 3, mr: 3 }}>
         <Grid container spacing={3}>
-          <HCMChoroplethContainer xs={12} md={12} lg={12} />
+          <BarChartContainer xs={12} md={12} lg={6} />
+          <LineChartContainer xs={12} md={12} lg={6} />
         </Grid>
       </Box>
     </Box>
