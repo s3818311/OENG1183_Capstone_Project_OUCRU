@@ -16,12 +16,13 @@ const hcmc_features = require("../../tempdata/hcmc_feature.json")["features"];
 setTimeout(() => {
   const choroplethSVG = document.querySelectorAll(
     "svg[xmlns='http://www.w3.org/2000/svg']"
-  )[2];
+  )[0];
   const choroplethSVGParent = choroplethSVG.parentElement;
   const choroplethSVGContainer = document.querySelectorAll(
     ".MuiGrid-root.MuiGrid-item"
-  )[2];
+  )[0];
 
+  console.log(choroplethSVGContainer);
   choroplethSVGContainer.style.minWidth = "1600px";
   var viewBox = {
     x: 0,

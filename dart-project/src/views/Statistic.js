@@ -2,8 +2,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
-import BarChartContainer from "../components/overview/BarChartContainer";
-import LineChartContainer from "../components/overview/LineChartContainer";
+import BarChartContainer from "../components/statistic/BarChartContainer";
+import LineChartContainer from "../components/statistic/LineChartContainer";
 
 const Overview = () => {
   return (
