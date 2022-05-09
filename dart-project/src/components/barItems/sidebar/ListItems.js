@@ -8,6 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 import PropTypes from "prop-types";
+import BarChartIcon from "@mui/icons-material/BarChart";
 
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -47,7 +48,7 @@ ListItemLink.propTypes = {
 export const mainListItems = (
   <React.Fragment>
     <ListItemLink to="/" primary="Overview" icon={<DashboardIcon />} />
-    <ListItemLink to="/view2" primary="Tab 1" icon={<PeopleIcon />} />
+    <ListItemLink to="/statistic" primary="Statistic" icon={<BarChartIcon />} />
     <ListItemLink to="/view3" primary="Tab 2" icon={<PeopleIcon />} />
     <ListItemLink to="/guide" primary="Guide" icon={<FindInPageIcon />} />
   </React.Fragment>
