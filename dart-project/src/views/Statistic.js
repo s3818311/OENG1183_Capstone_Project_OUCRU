@@ -22,8 +22,8 @@ const Overview = () => {
       <Toolbar />
       <Box sx={{ mt: 4, mb: 4, ml: 3, mr: 3 }}>
         <Grid container spacing={3}>
-          <BarChartContainer xs={12} md={12} lg={6} />
-          <LineChartContainer xs={12} md={12} lg={6} />
+          <BarChartContainer xs={12} sm={5} md={8} lg={6} />
+          <LineChartContainer xs={12} sm={7} md={4} lg={6} />
         </Grid>
       </Box>
     </Box>
