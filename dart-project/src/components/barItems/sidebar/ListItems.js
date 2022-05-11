@@ -9,9 +9,27 @@ import ListItem from "@mui/material/ListItem";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 import PropTypes from "prop-types";
 import BarChartIcon from "@mui/icons-material/BarChart";
-
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+
+const CustomListItem = styled(ListItem)({
+  "&.MuiListItem-root": {
+    "&:hover": {
+      backgroundColor: "rgba(25, 118, 210, 0.1)",
+    },
+    "&.Mui-selected": {
+      backgroundColor: "rgba(25, 118, 210, 0.9)",
+      color: "white",
+      ".MuiListItem-root:hover": {
+        backgroundColor: "rgba(25, 118, 210, 0.9 )",
+      },
+      ".MuiSvgIcon-root": {
+        color: "white",
+      },
+    },
+  },
+});
 
 function ListItemLink(props) {
   const { icon, primary, to } = props;
@@ -27,14 +45,14 @@ function ListItemLink(props) {
 
   return (
     <li key={location.pathname}>
-      <ListItem
+      <CustomListItem
         button
         component={renderLink}
         selected={to === location.pathname}
       >
         {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
         <ListItemText primary={primary} />
-      </ListItem>
+      </CustomListItem>
     </li>
   );
 }
@@ -59,8 +77,8 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       Saved reports
     </ListSubheader>
-    <ListItemLink to="/view3" primary="Report 1" icon={<AssignmentIcon />} />
-    <ListItemLink to="/view3" primary="Report 2" icon={<AssignmentIcon />} />
-    <ListItemLink to="/view3" primary="Report 3" icon={<AssignmentIcon />} />
+    <ListItemLink to="/view4" primary="Report 1" icon={<AssignmentIcon />} />
+    <ListItemLink to="/view5" primary="Report 2" icon={<AssignmentIcon />} />
+    <ListItemLink to="/view6" primary="Report 3" icon={<AssignmentIcon />} />
   </React.Fragment>
 );
