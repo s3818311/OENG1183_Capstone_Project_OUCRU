@@ -12,7 +12,7 @@ import Grid from "@mui/material/Grid";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "rgba(25, 118, 210, 0.9)",
+    backgroundColor: "rgba(25, 118, 210, 1)",
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
