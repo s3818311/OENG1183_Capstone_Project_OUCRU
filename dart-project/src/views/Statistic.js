@@ -4,8 +4,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
 import BarChartContainer from "../components/statistic/BarChartContainer";
 import LineChartContainer from "../components/statistic/LineChartContainer";
+import StreamChartContainer from "../components/statistic/StreamChartContainer";
+import PieChartContainer from "../components/statistic/PieChartContainer";
+import StatisticTableContainer from "../components/statistic/StatisticTableContainer";
 
-const Overview = () => {
+const Statistic = () => {
   return (
     <Box
       component="main"
@@ -20,14 +23,35 @@ const Overview = () => {
       }}
     >
       <Toolbar />
-      <Box sx={{ mt: 4, mb: 4, ml: 3, mr: 3 }}>
-        <Grid container spacing={3}>
-          <BarChartContainer xs={12} sm={5} md={8} lg={6} />
-          <LineChartContainer xs={12} sm={7} md={4} lg={6} />
+      <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
+        <Grid container spacing={2}>
+          <StreamChartContainer xs={12} md={7} lg={7} />
+          <PieChartContainer xs={12} md={5} lg={5} />
+        </Grid>
+      </Box>
+      <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
+        <Grid container spacing={2}>
+          <StatisticTableContainer xs={12} md={7} lg={7} />
+          <BarChartContainer
+            xs={12}
+            md={5}
+            lg={5}
+            sx={{ position: "relative", top: -55 }}
+          />
+        </Grid>
+      </Box>
+      <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
+        <Grid container spacing={2}>
+          <LineChartContainer
+            xs
+            md
+            lg
+            sx={{ position: "relative", top: -55 }}
+          />
         </Grid>
       </Box>
     </Box>
   );
 };
 
-export default Overview;
+export default Statistic;

@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 
 const lineData = require("../../tempdata/line.json");
 
-const OverviewLineChart = () => (
+const StatisticLineChart = () => (
   <ResponsiveLine
     data={lineData}
     margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -76,14 +76,14 @@ const OverviewLineChart = () => (
 
 const LineChartContainer = (props) => {
   return (
-    <Grid item xs={props.xs} md={props.md} lg={props.lg}>
+    <Grid item xs={props.xs} md={props.md} lg={props.lg} sx={props.sx}>
       <Paper
         sx={{
           p: 2,
           height: 600,
         }}
       >
-        <OverviewLineChart />
+        <StatisticLineChart />
       </Paper>
     </Grid>
   );

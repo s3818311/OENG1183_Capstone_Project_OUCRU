@@ -25,8 +25,6 @@ const mdTheme = createTheme({
   },
 });
 
-// const mdTheme = createTheme();
-
 function Router(props) {
   const { children } = props;
   if (typeof window === "undefined") {
@@ -64,7 +62,8 @@ function DashboardContent() {
   const [clicked, setClicked] = useState(false);
   const [width] = useWindowSize();
 
-  if (width < BROWSER.SIZE.HIGHER_BREAKPOINT) {
+  // width: 1200
+  if (width < BROWSER.SIZE.HIGHER_BREAKPOINT + 400) {
     open = false;
     menuDisabled = true;
   } else {

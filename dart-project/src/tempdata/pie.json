@@ -1,0 +1,32 @@
+[
+    {
+      "id": "elixir",
+      "label": "elixir",
+      "value": 537,
+      "color": "hsl(303, 70%, 50%)"
+    },
+    {
+      "id": "python",
+      "label": "python",
+      "value": 85,
+      "color": "hsl(221, 70%, 50%)"
+    },
+    {
+      "id": "javascript",
+      "label": "javascript",
+      "value": 119,
+      "color": "hsl(95, 70%, 50%)"
+    },
+    {
+      "id": "php",
+      "label": "php",
+      "value": 137,
+      "color": "hsl(210, 70%, 50%)"
+    },
+    {
+      "id": "erlang",
+      "label": "erlang",
+      "value": 307,
+      "color": "hsl(30, 70%, 50%)"
+    }
+  ]

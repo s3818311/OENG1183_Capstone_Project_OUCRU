@@ -18,13 +18,13 @@ const BarTitle = () => {
   );
 };
 
-const OverviewBarChart = () => (
+const StatisticBarChart = () => (
   <ResponsiveBar
     data={barData}
     keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
     indexBy="country"
     margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-    groupMode="grouped"
+    padding={0.3}
     valueScale={{ type: "linear" }}
     indexScale={{ type: "band", round: true }}
     colors={{ scheme: "nivo" }}
@@ -115,25 +115,16 @@ const OverviewBarChart = () => (
       },
     ]}
     role="application"
-    ariaLabel="Bar Chart"
+    ariaLabel="Nivo bar chart demo"
     barAriaLabel={function (e) {
       return e.id + ": " + e.formattedValue + " in country: " + e.indexValue;
     }}
-    layers={[
-      "grid",
-      "axes",
-      "bars",
-      "markers",
-      "legends",
-      "annotations",
-      // Title,
-    ]}
   />
 );
 
 const BarChartContainer = (props) => {
   return (
-    <Grid item xs={props.xs} md={props.md} lg={props.lg}>
+    <Grid item xs={props.xs} md={props.md} lg={props.lg} sx={props.sx}>
       <Paper
         sx={{
           p: 2,
@@ -141,7 +132,7 @@ const BarChartContainer = (props) => {
         }}
       >
         <BarTitle />
-        <OverviewBarChart />
+        <StatisticBarChart />
       </Paper>
     </Grid>
   );
