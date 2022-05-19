@@ -13,7 +13,7 @@ const PieTitle = () => {
       align="center"
       sx={{ marginTop: 1, marginBottom: -5 }}
     >
-      Ho Chi Minh City land cover
+      Ho Chi Minh City land cover distribution
     </Typography>
   );
 };
@@ -32,6 +32,7 @@ const StatisticPieChart = () => (
       from: "color",
       modifiers: [["darker", 0.2]],
     }}
+    enableArcLabels={false}
     arcLinkLabelsSkipAngle={10}
     arcLinkLabelsTextColor="#333333"
     arcLinkLabelsThickness={2}
@@ -41,6 +42,7 @@ const StatisticPieChart = () => (
       from: "color",
       modifiers: [["darker", 2]],
     }}
+    isInteractive={false}
     defs={[
       {
         id: "dots",
@@ -64,7 +66,7 @@ const StatisticPieChart = () => (
     fill={[]}
     legends={[
       {
-        anchor: "bottom-left",
+        anchor: "left",
         direction: "column",
         justify: false,
         translateX: 20,
