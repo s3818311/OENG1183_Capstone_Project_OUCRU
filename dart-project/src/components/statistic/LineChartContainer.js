@@ -25,7 +25,7 @@ const StatisticLineChart = () => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "transportation",
+      legend: "Month",
       legendOffset: 36,
       legendPosition: "middle",
     }}
@@ -34,17 +34,10 @@ const StatisticLineChart = () => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "count",
+      legend: "Rainfall (mm)",
       legendOffset: -40,
       legendPosition: "middle",
     }}
-    lineWidth={3}
-    pointSize={7}
-    pointColor={{ theme: "background" }}
-    pointBorderWidth={3}
-    pointBorderColor={{ from: "serieColor" }}
-    pointLabelYOffset={-12}
-    useMesh={true}
     legends={[
       {
         anchor: "bottom-right",
@@ -71,6 +64,13 @@ const StatisticLineChart = () => (
         ],
       },
     ]}
+    lineWidth={3}
+    pointSize={7}
+    pointColor={{ theme: "background" }}
+    pointBorderWidth={3}
+    pointBorderColor={{ from: "serieColor" }}
+    pointLabelYOffset={-12}
+    useMesh={true}
   />
 );
 

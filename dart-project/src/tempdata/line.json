@@ -1,272 +1,272 @@
 [
-    {
-      "id": "japan",
-      "color": "hsl(206, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 105
-        },
-        {
-          "x": "helicopter",
-          "y": 281
-        },
-        {
-          "x": "boat",
-          "y": 144
-        },
-        {
-          "x": "train",
-          "y": 217
-        },
-        {
-          "x": "subway",
-          "y": 28
-        },
-        {
-          "x": "bus",
-          "y": 185
-        },
-        {
-          "x": "car",
-          "y": 157
-        },
-        {
-          "x": "moto",
-          "y": 177
-        },
-        {
-          "x": "bicycle",
-          "y": 28
-        },
-        {
-          "x": "horse",
-          "y": 180
-        },
-        {
-          "x": "skateboard",
-          "y": 183
-        },
-        {
-          "x": "others",
-          "y": 108
-        }
-      ]
-    },
-    {
-      "id": "france",
-      "color": "hsl(114, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 180
-        },
-        {
-          "x": "helicopter",
-          "y": 234
-        },
-        {
-          "x": "boat",
-          "y": 87
-        },
-        {
-          "x": "train",
-          "y": 91
-        },
-        {
-          "x": "subway",
-          "y": 166
-        },
-        {
-          "x": "bus",
-          "y": 20
-        },
-        {
-          "x": "car",
-          "y": 194
-        },
-        {
-          "x": "moto",
-          "y": 287
-        },
-        {
-          "x": "bicycle",
-          "y": 245
-        },
-        {
-          "x": "horse",
-          "y": 211
-        },
-        {
-          "x": "skateboard",
-          "y": 100
-        },
-        {
-          "x": "others",
-          "y": 201
-        }
-      ]
-    },
-    {
-      "id": "us",
-      "color": "hsl(64, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 163
-        },
-        {
-          "x": "helicopter",
-          "y": 67
-        },
-        {
-          "x": "boat",
-          "y": 102
-        },
-        {
-          "x": "train",
-          "y": 233
-        },
-        {
-          "x": "subway",
-          "y": 288
-        },
-        {
-          "x": "bus",
-          "y": 287
-        },
-        {
-          "x": "car",
-          "y": 108
-        },
-        {
-          "x": "moto",
-          "y": 67
-        },
-        {
-          "x": "bicycle",
-          "y": 228
-        },
-        {
-          "x": "horse",
-          "y": 27
-        },
-        {
-          "x": "skateboard",
-          "y": 170
-        },
-        {
-          "x": "others",
-          "y": 242
-        }
-      ]
-    },
-    {
-      "id": "germany",
-      "color": "hsl(317, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 206
-        },
-        {
-          "x": "helicopter",
-          "y": 282
-        },
-        {
-          "x": "boat",
-          "y": 16
-        },
-        {
-          "x": "train",
-          "y": 281
-        },
-        {
-          "x": "subway",
-          "y": 20
-        },
-        {
-          "x": "bus",
-          "y": 116
-        },
-        {
-          "x": "car",
-          "y": 244
-        },
-        {
-          "x": "moto",
-          "y": 127
-        },
-        {
-          "x": "bicycle",
-          "y": 15
-        },
-        {
-          "x": "horse",
-          "y": 146
-        },
-        {
-          "x": "skateboard",
-          "y": 289
-        },
-        {
-          "x": "others",
-          "y": 150
-        }
-      ]
-    },
-    {
-      "id": "norway",
-      "color": "hsl(32, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 260
-        },
-        {
-          "x": "helicopter",
-          "y": 26
-        },
-        {
-          "x": "boat",
-          "y": 149
-        },
-        {
-          "x": "train",
-          "y": 167
-        },
-        {
-          "x": "subway",
-          "y": 157
-        },
-        {
-          "x": "bus",
-          "y": 110
-        },
-        {
-          "x": "car",
-          "y": 282
-        },
-        {
-          "x": "moto",
-          "y": 93
-        },
-        {
-          "x": "bicycle",
-          "y": 240
-        },
-        {
-          "x": "horse",
-          "y": 33
-        },
-        {
-          "x": "skateboard",
-          "y": 128
-        },
-        {
-          "x": "others",
-          "y": 44
-        }
-      ]
-    }
-  ]
+  {
+    "id": "District 1",
+    "color": "hsl(206, 70%, 50%)",
+    "data": [
+      {
+        "x": "January",
+        "y": 105
+      },
+      {
+        "x": "February",
+        "y": 281
+      },
+      {
+        "x": "March",
+        "y": 144
+      },
+      {
+        "x": "April",
+        "y": 217
+      },
+      {
+        "x": "May",
+        "y": 28
+      },
+      {
+        "x": "June",
+        "y": 185
+      },
+      {
+        "x": "July",
+        "y": 157
+      },
+      {
+        "x": "August",
+        "y": 177
+      },
+      {
+        "x": "September",
+        "y": 28
+      },
+      {
+        "x": "October",
+        "y": 180
+      },
+      {
+        "x": "November",
+        "y": 183
+      },
+      {
+        "x": "December",
+        "y": 108
+      }
+    ]
+  },
+  {
+    "id": "District 3",
+    "color": "hsl(114, 70%, 50%)",
+    "data": [
+      {
+        "x": "January",
+        "y": 180
+      },
+      {
+        "x": "February",
+        "y": 234
+      },
+      {
+        "x": "March",
+        "y": 87
+      },
+      {
+        "x": "April",
+        "y": 91
+      },
+      {
+        "x": "May",
+        "y": 166
+      },
+      {
+        "x": "June",
+        "y": 20
+      },
+      {
+        "x": "July",
+        "y": 194
+      },
+      {
+        "x": "August",
+        "y": 287
+      },
+      {
+        "x": "September",
+        "y": 245
+      },
+      {
+        "x": "October",
+        "y": 211
+      },
+      {
+        "x": "November",
+        "y": 100
+      },
+      {
+        "x": "December",
+        "y": 201
+      }
+    ]
+  },
+  {
+    "id": "District 4",
+    "color": "hsl(64, 70%, 50%)",
+    "data": [
+      {
+        "x": "January",
+        "y": 163
+      },
+      {
+        "x": "February",
+        "y": 67
+      },
+      {
+        "x": "March",
+        "y": 102
+      },
+      {
+        "x": "April",
+        "y": 233
+      },
+      {
+        "x": "May",
+        "y": 288
+      },
+      {
+        "x": "June",
+        "y": 287
+      },
+      {
+        "x": "July",
+        "y": 108
+      },
+      {
+        "x": "August",
+        "y": 67
+      },
+      {
+        "x": "September",
+        "y": 228
+      },
+      {
+        "x": "October",
+        "y": 27
+      },
+      {
+        "x": "November",
+        "y": 170
+      },
+      {
+        "x": "December",
+        "y": 242
+      }
+    ]
+  },
+  {
+    "id": "District 5",
+    "color": "hsl(317, 70%, 50%)",
+    "data": [
+      {
+        "x": "January",
+        "y": 206
+      },
+      {
+        "x": "February",
+        "y": 282
+      },
+      {
+        "x": "March",
+        "y": 16
+      },
+      {
+        "x": "April",
+        "y": 281
+      },
+      {
+        "x": "May",
+        "y": 20
+      },
+      {
+        "x": "June",
+        "y": 116
+      },
+      {
+        "x": "July",
+        "y": 244
+      },
+      {
+        "x": "August",
+        "y": 127
+      },
+      {
+        "x": "September",
+        "y": 15
+      },
+      {
+        "x": "October",
+        "y": 146
+      },
+      {
+        "x": "November",
+        "y": 289
+      },
+      {
+        "x": "December",
+        "y": 150
+      }
+    ]
+  },
+  {
+    "id": "District 6",
+    "color": "hsl(32, 70%, 50%)",
+    "data": [
+      {
+        "x": "January",
+        "y": 260
+      },
+      {
+        "x": "February",
+        "y": 26
+      },
+      {
+        "x": "March",
+        "y": 149
+      },
+      {
+        "x": "April",
+        "y": 167
+      },
+      {
+        "x": "May",
+        "y": 157
+      },
+      {
+        "x": "June",
+        "y": 110
+      },
+      {
+        "x": "July",
+        "y": 282
+      },
+      {
+        "x": "August",
+        "y": 93
+      },
+      {
+        "x": "September",
+        "y": 240
+      },
+      {
+        "x": "October",
+        "y": 33
+      },
+      {
+        "x": "November",
+        "y": 128
+      },
+      {
+        "x": "December",
+        "y": 44
+      }
+    ]
+  }
+]
