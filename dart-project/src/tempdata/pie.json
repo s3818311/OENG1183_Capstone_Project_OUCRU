@@ -1,32 +1,56 @@
 [
-    {
-      "id": "elixir",
-      "label": "elixir",
-      "value": 537,
-      "color": "hsl(303, 70%, 50%)"
-    },
-    {
-      "id": "python",
-      "label": "python",
-      "value": 85,
-      "color": "hsl(221, 70%, 50%)"
-    },
-    {
-      "id": "javascript",
-      "label": "javascript",
-      "value": 119,
-      "color": "hsl(95, 70%, 50%)"
-    },
-    {
-      "id": "php",
-      "label": "php",
-      "value": 137,
-      "color": "hsl(210, 70%, 50%)"
-    },
-    {
-      "id": "erlang",
-      "label": "erlang",
-      "value": 307,
-      "color": "hsl(30, 70%, 50%)"
-    }
-  ]
+  {
+    "id": "Built-up",
+    "label": "Built-up",
+    "value": 5904470,
+    "color": "#fa0000"
+  },
+  {
+    "id": "Mangroves",
+    "label": "Mangroves",
+    "value": 4941401,
+    "color": "#00cf75"
+  },
+  {
+    "id": "Tree cover",
+    "label": "Tree cover",
+    "value": 4374188,
+    "color": "#006400"
+  },
+  {
+    "id": "Permanent water bodies",
+    "label": "Permanent water bodies",
+    "value": 3758344,
+    "color": "#0064c8"
+  },
+  {
+    "id": "Grassland",
+    "label": "Grassland",
+    "value": 2301553,
+    "color": "#ffff4c"
+  },
+  {
+    "id": "Cropland",
+    "label": "Cropland",
+    "value": 2069368,
+    "color": "#f096ff"
+  },
+  {
+    "id": "Bare / sparse vegetation",
+    "label": "Bare / sparse vegetation",
+    "value": 1617251,
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "Shrubland",
+    "label": "Shrubland",
+    "value": 107458,
+    "color": "#ffbb22"
+  },
+  {
+    "id": "Herbaceous wetland",
+    "label": "Herbaceous wetland",
+    "value": 33813,
+    "color": "#0096a0"
+  }
+]

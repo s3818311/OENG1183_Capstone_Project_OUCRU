@@ -13,7 +13,7 @@ const PieTitle = () => {
       align="center"
       sx={{ marginTop: 1, marginBottom: -5 }}
     >
-      Pie Chart Title
+      Ho Chi Minh City land cover
     </Typography>
   );
 };
@@ -21,7 +21,8 @@ const PieTitle = () => {
 const StatisticPieChart = () => (
   <ResponsivePie
     data={pieData}
-    margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+    margin={{ top: 80, right: 80, bottom: 80, left: 80 }}
+    colors={{ datum: "data.color" }}
     innerRadius={0.5}
     padAngle={0.7}
     cornerRadius={3}
@@ -60,60 +61,11 @@ const StatisticPieChart = () => (
         spacing: 10,
       },
     ]}
-    fill={[
-      {
-        match: {
-          id: "ruby",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "c",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "go",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "python",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "scala",
-        },
-        id: "lines",
-      },
-      {
-        match: {
-          id: "lisp",
-        },
-        id: "lines",
-      },
-      {
-        match: {
-          id: "elixir",
-        },
-        id: "lines",
-      },
-      {
-        match: {
-          id: "javascript",
-        },
-        id: "lines",
-      },
-    ]}
+    fill={[]}
     legends={[
       {
-        anchor: "bottom",
-        direction: "row",
+        anchor: "bottom-left",
+        direction: "column",
         justify: false,
         translateX: 20,
         translateY: 56,

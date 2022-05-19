@@ -25,8 +25,8 @@ const Statistic = () => {
       <Toolbar />
       <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
         <Grid container spacing={2}>
-          <StreamChartContainer xs={12} md={7} lg={7} />
-          <PieChartContainer xs={12} md={5} lg={5} />
+          {/* <StreamChartContainer xs={12} md={7} lg={7} /> */}
+          <PieChartContainer xs={12} md={12} lg={12} />
         </Grid>
       </Box>
       <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
