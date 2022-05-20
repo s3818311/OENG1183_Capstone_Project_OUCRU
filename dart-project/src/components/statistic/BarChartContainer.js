@@ -13,7 +13,7 @@ const BarTitle = () => {
       align="center"
       sx={{ marginTop: 1, marginBottom: -5 }}
     >
-      Ho Chi Minh City elevation from sea level (m)
+      Ho Chi Minh City elevation distribution (m)
     </Typography>
   );
 };
@@ -30,6 +30,7 @@ const StatisticBarChart = () => (
     indexScale={{ type: "band", round: true }}
     colors={{ scheme: "nivo" }}
     colorBy="indexValue"
+    isInteractive={false}
     defs={[
       {
         id: "dots",

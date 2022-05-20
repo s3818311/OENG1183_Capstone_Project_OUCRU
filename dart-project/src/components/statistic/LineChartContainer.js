@@ -40,7 +40,7 @@ const StatisticLineChart = () => (
     }}
     legends={[
       {
-        anchor: "bottom-right",
+        anchor: "right",
         direction: "column",
         justify: false,
         translateX: 100,
@@ -71,8 +71,23 @@ const StatisticLineChart = () => (
     pointBorderColor={{ from: "serieColor" }}
     pointLabelYOffset={-12}
     useMesh={true}
+    enableGridX={false}
+    curve="monotoneX"
   />
 );
+
+const LineTitle = () => {
+  return (
+    <Typography
+      variant="h6"
+      color="black"
+      align="center"
+      sx={{ marginTop: 1, marginBottom: -5 }}
+    >
+      2020 rainfall estimates for HCMC districts (mm)
+    </Typography>
+  );
+};
 
 const LineChartContainer = (props) => {
   return (
@@ -83,6 +98,7 @@ const LineChartContainer = (props) => {
           height: 600,
         }}
       >
+        <LineTitle />
         <StatisticLineChart />
       </Paper>
     </Grid>
