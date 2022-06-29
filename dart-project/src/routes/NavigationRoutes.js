@@ -1,14 +1,13 @@
 import React, { lazy } from "react";
 import { Route } from "react-router-dom";
+import * as ROUTES from "../enums/routes.js";
 
-const Overview = lazy(() => import("../views/Overview.js"));
-const Statistic = lazy(() => import("../views/Statistic.js"));
-const View3 = lazy(() => import("../views/View3.js"));
+const LandingPage = lazy(() => import("../views/landing/LandingPage.js"));
+const Dashboard = lazy(() => import("../views/dashboard/Dashboard.js"));
 
 const NavigationRoutes = [
-  <Route exact path="/" element={<Overview />} />,
-  <Route exact path="/statistic" element={<Statistic />} />,
-  <Route exact path="/view3" element={<View3 />} />,
+  <Route exact path={ROUTES.LINK.DEFAULT} element={<LandingPage />} />,
+  <Route exact path={ROUTES.LINK.DASHBOARD} element={<Dashboard />} />,
 ];
 
 export default NavigationRoutes;

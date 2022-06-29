@@ -3,14 +3,11 @@ import { useState, useLayoutEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import TopBar from "../components/global/TopBar";
-import SideBar from "../components/global/SideBar";
-import { Suspense } from "react";
+import TopBar from "../../components/dashboard/global/TopBar";
+import SideBar from "../../components/dashboard/global/SideBar";
 import { Routes, MemoryRouter } from "react-router-dom";
-import { StaticRouter } from "react-router-dom/server";
-import PropTypes from "prop-types";
-import NavigationRoutes from "../routes/NavigationRoutes";
-import * as BROWSER from "../enums/browser.js";
+import DashboardRoutes from "../../routes/DashboardRoutes";
+import * as BROWSER from "../../enums/browser.js";
 
 const mdTheme = createTheme({
   components: {
@@ -24,23 +21,6 @@ const mdTheme = createTheme({
     },
   },
 });
-
-function Router(props) {
-  const { children } = props;
-  if (typeof window === "undefined") {
-    return <StaticRouter location="/">{children}</StaticRouter>;
-  }
-
-  return (
-    <MemoryRouter initialEntries={["/"]} initialIndex={0}>
-      {children}
-    </MemoryRouter>
-  );
-}
-
-Router.propTypes = {
-  children: PropTypes.node,
-};
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -92,13 +72,8 @@ function DashboardContent() {
           toggleDrawer={toggleDrawer}
           disabled={menuDisabled}
         />
-
-        <Suspense fallback={<div></div>}>
-          <Router>
-            <SideBar open={open} toggleDrawer={toggleDrawer} />
-            <Routes>{NavigationRoutes}</Routes>
-          </Router>
-        </Suspense>
+        <SideBar open={open} toggleDrawer={toggleDrawer} />
+        <Routes>{DashboardRoutes}</Routes>
       </Box>
     </ThemeProvider>
   );

@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import { ResponsiveBar } from "@nivo/bar";
 import Typography from "@mui/material/Typography";
 
-const barData = require("../../tempdata/elevation.json");
+const barData = require("../../../tempdata/elevation.json");
 
 const BarTitle = () => {
   return (

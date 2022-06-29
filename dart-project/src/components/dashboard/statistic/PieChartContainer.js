@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import { ResponsivePie } from "@nivo/pie";
 import Typography from "@mui/material/Typography";
 
-const pieData = require("../../tempdata/pie_pct.json");
+const pieData = require("../../../tempdata/pie_pct.json");
 
 const PieTitle = () => {
   return (

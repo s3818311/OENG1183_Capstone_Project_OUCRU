@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
-const funnelData = require("../../tempdata/elevation_pct.json");
+const funnelData = require("../../../tempdata/elevation_pct.json");
 
 const FunnelTitle = () => {
   return (

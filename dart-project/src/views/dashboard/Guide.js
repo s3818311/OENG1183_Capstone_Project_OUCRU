@@ -1,6 +1,6 @@
 import React from 'react';
 
-const View3 = () => { 
+const Guide = () => { 
     return (
         <div>
             <h2>View 3</h2>
@@ -9,4 +9,4 @@ const View3 = () => {
 };
 
 
-export default View3;
+export default Guide;

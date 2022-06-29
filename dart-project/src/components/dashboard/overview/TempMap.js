@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-const hcmc_features = require("../../tempdata/hcmc_feature.json");
-const hcmc_data = require("../../tempdata/chirps_avg_hcmc_2020.json");
-const hanoi_features = require("../../tempdata/hanoi_feature.json");
-const hanoi_data = require("../../tempdata/chirps_avg_hanoi_2020.json");
+const hcmc_features = require("../../../tempdata/hcmc_feature.json");
+const hcmc_data = require("../../../tempdata/chirps_avg_hcmc_2020.json");
+const hanoi_features = require("../../../tempdata/hanoi_feature.json");
+const hanoi_data = require("../../../tempdata/chirps_avg_hanoi_2020.json");
 
 class MyMapContainer extends Component {
   state = { color: "#ffff00" };
 
   colors = ["green", "blue", "yellow", "orange", "grey"];
 
-  componentDidMount() {
-    console.log("Ok");
-  }
+  componentDidMount() {}
 
   wardStyle = {
     fillColor: "blue",

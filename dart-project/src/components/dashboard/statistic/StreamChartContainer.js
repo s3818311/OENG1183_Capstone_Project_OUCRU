@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import { ResponsiveStream } from "@nivo/stream";
 import Typography from "@mui/material/Typography";
 
-const streamData = require("../../tempdata/stream.json");
+const streamData = require("../../../tempdata/stream.json");
 
 const StreamTitle = () => {
   return (

@@ -2,12 +2,12 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
-import BarChartContainer from "../components/statistic/BarChartContainer";
-import LineChartContainer from "../components/statistic/LineChartContainer";
-import StreamChartContainer from "../components/statistic/StreamChartContainer";
-import PieChartContainer from "../components/statistic/PieChartContainer";
-import StatisticTableContainer from "../components/statistic/StatisticTableContainer";
-import FunnelChartContainer from "../components/statistic/FunnelChartContainer.js";
+import BarChartContainer from "../../components/dashboard/statistic/BarChartContainer";
+import LineChartContainer from "../../components/dashboard/statistic/LineChartContainer";
+import StreamChartContainer from "../../components/dashboard/statistic/StreamChartContainer";
+import PieChartContainer from "../../components/dashboard/statistic/PieChartContainer";
+import StatisticTableContainer from "../../components/dashboard/statistic/StatisticTableContainer";
+import FunnelChartContainer from "../../components/dashboard/statistic/FunnelChartContainer.js";
 
 const Statistic = () => {
   return (

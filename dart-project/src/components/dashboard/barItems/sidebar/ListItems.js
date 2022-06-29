@@ -12,6 +12,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { styled } from "@mui/material/styles";
+import * as ROUTES from "../../../../enums/routes.js";
 
 const CustomListItem = styled(ListItem)({
   "&.MuiListItem-root": {
@@ -34,7 +35,6 @@ const CustomListItem = styled(ListItem)({
 function ListItemLink(props) {
   const { icon, primary, to } = props;
   const location = useLocation();
-
   const renderLink = React.useMemo(
     () =>
       React.forwardRef(function Link(itemProps, ref) {
@@ -48,7 +48,7 @@ function ListItemLink(props) {
       <CustomListItem
         button
         component={renderLink}
-        selected={to === location.pathname}
+        selected={"/dashboard/" + to === location.pathname}
       >
         {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
         <ListItemText primary={primary} />
@@ -65,10 +65,21 @@ ListItemLink.propTypes = {
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemLink to="/" primary="Overview" icon={<DashboardIcon />} />
-    <ListItemLink to="/statistic" primary="Statistic" icon={<BarChartIcon />} />
-    <ListItemLink to="/view3" primary="Tab 2" icon={<PeopleIcon />} />
-    <ListItemLink to="/guide" primary="Guide" icon={<FindInPageIcon />} />
+    <ListItemLink
+      to={ROUTES.LINK.DASHBOARD_OVERVIEW}
+      primary="Overview"
+      icon={<DashboardIcon />}
+    />
+    <ListItemLink
+      to={ROUTES.LINK.DASHBOARD_STATISTIC}
+      primary="Statistic"
+      icon={<BarChartIcon />}
+    />
+    <ListItemLink
+      to={ROUTES.LINK.DASHBOARD_GUIDE}
+      primary="Guide"
+      icon={<FindInPageIcon />}
+    />
   </React.Fragment>
 );
 

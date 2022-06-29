@@ -2,9 +2,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
-import HCMChoroplethContainer from "../components/overview/HCMChoroplethContainer";
-import LineChartContainer from "../components/overview/LineChartContainer";
-import MyMap from "../components/overview/TempMap";
+import HCMChoroplethContainer from "../../components/dashboard/overview/HCMChoroplethContainer";
+import MyMap from "../../components/dashboard/overview/TempMap";
 
 const Overview = () => {
   return (
@@ -23,9 +22,6 @@ const Overview = () => {
       <Toolbar />
       <Box sx={{ mt: 4, mb: 4, ml: 3, mr: 3 }}>
         <Grid container spacing={3}>
-          <BarChartContainer xs={12} md={12} lg={6} />
-          <LineChartContainer xs={12} md={12} lg={6} />
-
           <MyMap />
         </Grid>
       </Box>

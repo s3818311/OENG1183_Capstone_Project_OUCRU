@@ -7,10 +7,12 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
-import BaseDatepicker from "../base/BaseDatepicker";
+import BaseDatepicker from "../../base/BaseDatepicker";
 
-const hcmc_data = require("../../tempdata/hcmc_data.json");
-const hcmc_features = require("../../tempdata/hcmc_feature.json")["features"];
+const hcmc_data = require("../../../tempdata/hcmc_data.json");
+const hcmc_features = require("../../../tempdata/hcmc_feature.json")[
+  "features"
+];
 
 /*---------------------------------------------------------------------------*/
 setTimeout(() => {
