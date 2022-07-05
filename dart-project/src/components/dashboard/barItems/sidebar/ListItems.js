@@ -1,6 +1,5 @@
 import * as React from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import PeopleIcon from "@mui/icons-material/People";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import ListSubheader from "@mui/material/ListSubheader";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -66,17 +65,17 @@ ListItemLink.propTypes = {
 export const mainListItems = (
   <React.Fragment>
     <ListItemLink
-      to={ROUTES.LINK.DASHBOARD_OVERVIEW}
+      to={ROUTES.DASHBOARD.OVERVIEW}
       primary="Overview"
       icon={<DashboardIcon />}
     />
     <ListItemLink
-      to={ROUTES.LINK.DASHBOARD_STATISTIC}
+      to={ROUTES.DASHBOARD.STATISTIC}
       primary="Statistic"
       icon={<BarChartIcon />}
     />
     <ListItemLink
-      to={ROUTES.LINK.DASHBOARD_GUIDE}
+      to={ROUTES.DASHBOARD.GUIDE}
       primary="Guide"
       icon={<FindInPageIcon />}
     />

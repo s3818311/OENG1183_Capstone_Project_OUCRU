@@ -2,7 +2,7 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import * as ROUTES from "../../enums/routes.js";
 
-const DASHBOARD_ROUTE = "/dashboard/" + ROUTES.LINK.DASHBOARD_OVERVIEW;
+const DASHBOARD_ROUTE = "/dashboard/" + ROUTES.DASHBOARD.OVERVIEW;
 
 const LandingPage = () => {
   return (

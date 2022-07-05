@@ -30,8 +30,6 @@ export default function App() {
           <Routes>{NavigationRoutes}</Routes>
         </Router>
       </Suspense>
-      {/* <Dashboard />
-      <Footer /> */}
     </div>
   );
 }

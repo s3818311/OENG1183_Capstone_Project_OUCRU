@@ -7,13 +7,9 @@ const Statistic = lazy(() => import("../views/dashboard/Statistic.js"));
 const Guide = lazy(() => import("../views/dashboard/Guide.js"));
 
 const DashboardRoutes = [
-  <Route exact path={ROUTES.LINK.DASHBOARD_OVERVIEW} element={<Overview />} />,
-  <Route
-    exact
-    path={ROUTES.LINK.DASHBOARD_STATISTIC}
-    element={<Statistic />}
-  />,
-  <Route exact path={ROUTES.LINK.DASHBOARD_GUIDE} element={<Guide />} />,
+  <Route exact path={ROUTES.DASHBOARD.OVERVIEW} element={<Overview />} />,
+  <Route exact path={ROUTES.DASHBOARD.STATISTIC} element={<Statistic />} />,
+  <Route exact path={ROUTES.DASHBOARD.GUIDE} element={<Guide />} />,
 ];
 
 export default DashboardRoutes;
