@@ -7,6 +7,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import {
   mainListItems,
   secondaryListItems,
+  homeListItem,
 } from "../barItems/sidebar/ListItems";
 import Drawer from "../barItems/sidebar/Drawer";
 import Typography from "@mui/material/Typography";
@@ -61,6 +62,18 @@ const SideBar = (props) => {
       <List aria-label="main">{mainListItems}</List>
       <Divider />
       <List aria-label="secondary">{secondaryListItems}</List>
+      <Divider />
+      <List
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "end",
+        }}
+        aria-label="secondary"
+      >
+        {homeListItem}
+      </List>
     </Drawer>
   );
 };
