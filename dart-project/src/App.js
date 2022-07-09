@@ -4,6 +4,7 @@ import { StaticRouter } from "react-router-dom/server";
 import NavigationRoutes from "./routes/NavigationRoutes";
 import PropTypes from "prop-types";
 import { Suspense } from "react";
+import { Account } from "./utils/accountUtil";
 
 function Router(props) {
   const { children } = props;
@@ -24,12 +25,12 @@ Router.propTypes = {
 
 export default function App() {
   return (
-    <div>
+    <Account>
       <Suspense fallback={<div></div>}>
         <Router>
           <Routes>{NavigationRoutes}</Routes>
         </Router>
       </Suspense>
-    </div>
+    </Account>
   );
 }
