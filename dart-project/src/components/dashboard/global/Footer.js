@@ -1,6 +1,6 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import { dateUtil } from "../../utils/dateUtil";
+import { dateUtil } from "../../../utils/dateUtil";
 
 const Footer = (props) => {
   return (

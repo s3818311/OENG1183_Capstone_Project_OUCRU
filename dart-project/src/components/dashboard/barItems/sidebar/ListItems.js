@@ -12,6 +12,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import * as ROUTES from "../../../../enums/routes.js";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const CustomListItem = styled(ListItem)({
   "&.MuiListItem-root": {
@@ -87,8 +88,30 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       Saved reports
     </ListSubheader>
-    <ListItemLink to="/view4" primary="Report 1" icon={<AssignmentIcon />} />
-    <ListItemLink to="/view5" primary="Report 2" icon={<AssignmentIcon />} />
-    <ListItemLink to="/view6" primary="Report 3" icon={<AssignmentIcon />} />
+    <ListItemLink
+      to="/dashboard/"
+      primary="Report 1"
+      icon={<AssignmentIcon />}
+    />
+    <ListItemLink
+      to="/dashboard/"
+      primary="Report 2"
+      icon={<AssignmentIcon />}
+    />
+    <ListItemLink
+      to="/dashboard/"
+      primary="Report 3"
+      icon={<AssignmentIcon />}
+    />
+  </React.Fragment>
+);
+
+export const homeListItem = (
+  <React.Fragment>
+    <ListItemLink
+      to={ROUTES.DEFAULT}
+      primary="Home Page"
+      icon={<ArrowBackIcon />}
+    />
   </React.Fragment>
 );
