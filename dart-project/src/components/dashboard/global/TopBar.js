@@ -10,7 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
-import LoginIcon from "@mui/icons-material/Login";
+
 import { styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
 import { AccountContext } from "../../../utils/accountUtil";
@@ -152,6 +152,7 @@ const CustomLoginButton = styled(Button)(({ theme }) => ({
   "&:hover": {
     backgroundColor: grey[100],
   },
+  boxShadow: "none",
 }));
 
 function LoginButton() {
@@ -166,7 +167,6 @@ function LoginButton() {
       onClick={handleClick}
       sx={{ ml: "20px" }}
       size="large"
-      startIcon={<LoginIcon />}
     >
       <Typography variant="h6" sx={{ fontWeight: 600, fontSize: "15px" }}>
         Login
