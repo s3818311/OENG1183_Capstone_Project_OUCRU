@@ -1,13 +1,15 @@
 import * as React from "react";
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import TopBar from "../../components/dashboard/global/TopBar";
 import SideBar from "../../components/dashboard/global/SideBar";
-import { Routes, MemoryRouter } from "react-router-dom";
+import { Routes } from "react-router-dom";
 import DashboardRoutes from "../../routes/DashboardRoutes";
 import * as BROWSER from "../../enums/browser.js";
+import { localStorageUtil } from "../../utils/localStorageUtil";
+import * as STORAGE from "../../enums/localStorage";
 
 const mdTheme = createTheme({
   components: {
@@ -80,5 +82,11 @@ function DashboardContent() {
 }
 
 export default function Dashboard() {
+  useEffect(() => {
+    localStorageUtil.setStorageItem(
+      STORAGE.PAGE_TO_NAVIGATE_BACK,
+      STORAGE.DASHBOARD_PAGE
+    );
+  }, []);
   return <DashboardContent />;
 }
