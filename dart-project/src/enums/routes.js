@@ -8,7 +8,6 @@ export const DASHBOARD = {
 };
 
 export const PORTAL = {
-  DEFAULT: "/portal/*",
-  LOGIN: "login",
-  SIGNUP: "signup",
+  SIGNIN: "/signin",
+  SIGNUP: "/signup",
 };
