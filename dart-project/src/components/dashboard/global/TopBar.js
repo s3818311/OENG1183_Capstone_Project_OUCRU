@@ -74,7 +74,14 @@ function AccountMenu() {
           onClick={handleOpenAccountMenu}
           sx={{ ml: "5px" }}
         >
-          <Avatar sx={{ width: 32, height: 32, textTransform: "uppercase" }}>
+          <Avatar
+            sx={{
+              width: 32,
+              height: 32,
+              textTransform: "uppercase",
+              backgroundColor: "rgb(99,144,63)",
+            }}
+          >
             {preferredUsername.slice(0, 1)}
           </Avatar>
         </IconButton>
@@ -115,7 +122,14 @@ function AccountMenu() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem sx={{ pointerEvents: "none" }}>
-          <Avatar sx={{ width: 32, height: 32, textTransform: "uppercase" }}>
+          <Avatar
+            sx={{
+              width: 32,
+              height: 32,
+              textTransform: "uppercase",
+              backgroundColor: "rgb(99,144,63)",
+            }}
+          >
             {preferredUsername.slice(0, 1)}
           </Avatar>{" "}
           <Typography
