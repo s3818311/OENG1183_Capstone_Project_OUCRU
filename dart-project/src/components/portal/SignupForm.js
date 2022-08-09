@@ -8,7 +8,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import KeyIcon from "@mui/icons-material/Key";
 import { useState, useContext } from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
-import SignupImage from "../../images/signup.png";
+import SignupImage from "../../assets/portal/signup.png";
 import { Link as RouterLink } from "react-router-dom";
 import * as ROUTES from "../../enums/routes.js";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
