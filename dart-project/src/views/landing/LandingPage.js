@@ -8,6 +8,15 @@ import { localStorageUtil } from "../../utils/localStorageUtil";
 import * as STORAGE from "../../enums/localStorage";
 import { AccountContext } from "../../utils/accountUtil";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/landing/Footer.js";
+import Blog from "../../components/landing/Blog.js";
+import Possibility from "../../components/landing/Possibility.js";
+import Features from "../../components/landing/Features.js";
+import Header from "../../components/landing/Header.js";
+import WhatIsApp from "../../components/landing/WhatIsApp.js";
+import NavBar from "../../components/landing/NavBar.js";
+
+import "../../styles/landing/landing.css";
 
 const DASHBOARD_ROUTE = "/dashboard/" + ROUTES.DASHBOARD.OVERVIEW;
 
@@ -53,12 +62,25 @@ function LandingPage() {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <h2>LANDING PAGE </h2>
+      {/* <h2>LANDING PAGE </h2>
       <RouterLink to={DASHBOARD_ROUTE}>
         Click here to go to dashboard
       </RouterLink>
 
-      <LoginOrLogoutButton />
+      <LoginOrLogoutButton /> */}
+      <div>
+        <div className="gradient__bg">
+          <NavBar />
+          <Header />
+        </div>
+        <WhatIsApp />
+        <Features />
+        <Blog />
+        <Possibility />
+        <div>cta</div>
+
+        <Footer />
+      </div>
     </Box>
   );
 }
