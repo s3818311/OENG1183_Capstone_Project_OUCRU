@@ -5,6 +5,7 @@ import NavigationRoutes from "./routes/NavigationRoutes";
 import PropTypes from "prop-types";
 import { Suspense } from "react";
 import { Account } from "./utils/accountUtil";
+import "./index.css";
 
 function Router(props) {
   const { children } = props;
