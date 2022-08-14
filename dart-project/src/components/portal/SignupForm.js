@@ -254,6 +254,7 @@ function SignupForm(props) {
           {/* Email*/}
           <TextField
             required
+            autoComplete="off"
             id="signup-email"
             label="Email"
             type="text"
@@ -277,6 +278,7 @@ function SignupForm(props) {
           {/* Username */}
           <TextField
             required
+            autoComplete="off"
             id="signup-username"
             label="Your username"
             type="text"
@@ -300,6 +302,7 @@ function SignupForm(props) {
             {/* Password */}
             <TextField
               required
+              autoComplete="off"
               id="signup-password"
               label="Password"
               type="password"
@@ -331,6 +334,7 @@ function SignupForm(props) {
           {/* Role */}
           <TextField
             required
+            autoComplete="off"
             id="outlined-select-role"
             select
             label="Choose profile type"
