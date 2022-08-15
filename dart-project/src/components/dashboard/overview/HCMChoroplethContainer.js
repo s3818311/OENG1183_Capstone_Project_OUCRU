@@ -7,7 +7,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
-import BaseDatepicker from "../../base/BaseDatepicker";
 
 const hcmc_data = require("../../../tempdata/hcmc_data.json");
 const hcmc_features = require("../../../tempdata/hcmc_feature.json")[
@@ -158,9 +157,7 @@ function ChoroplethFilterAccordion(props) {
             Ho Chi Minh City Choropleth Map
           </Typography>
         </AccordionSummary>
-        <AccordionDetails>
-          <BaseDatepicker label="From" />
-        </AccordionDetails>
+        <AccordionDetails></AccordionDetails>
       </Accordion>
     </Grid>
   );
