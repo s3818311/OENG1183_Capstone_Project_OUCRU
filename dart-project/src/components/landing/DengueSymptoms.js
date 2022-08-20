@@ -64,7 +64,7 @@ const symptoms = [
     src: rash,
     title: "Rash",
     content:
-      "Dengue also cause small, red pinhead-like rashes in different body parts and they might be itchy. This may make you even more unconformtable and irritable during the fever.",
+      "Dengue also cause small, red pinhead-like rashes in different body parts and they might be itchy and not comfortable.",
     chips: [
       {
         label: "Common",
@@ -151,7 +151,7 @@ const SymptomCard = (props) => {
   return (
     <Card
       sx={{
-        maxWidth: { xs: 400, md: 400, lg: 345 },
+        maxWidth: { xs: 350, md: 400, lg: 345 },
         minWidth: 250,
 
         pointerEvents: "none",
@@ -200,7 +200,17 @@ const FirstSymptomsRow = () => {
   return (
     <Grid container spacing={5} sx={{}}>
       {symptoms.slice(0, 4).map((symptom) => (
-        <Grid item xs={12} md={6} lg={3}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <SymptomCard info={symptom} />
         </Grid>
       ))}
@@ -281,7 +291,7 @@ const DengueSymptoms = () => (
     <Grid
       container
       sx={{
-        width: { xs: "50%", md: "65%", lg: "85%" },
+        width: { xs: "80%", md: "65%", lg: "85%" },
         margin: "0 auto",
         py: 5,
       }}

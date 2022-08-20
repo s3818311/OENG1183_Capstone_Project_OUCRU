@@ -27,6 +27,11 @@ function getRandomNumberBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+const hospitalCases = getRandomNumberBetween(1, 50);
+const icuCases = getRandomNumberBetween(1, 10);
+const newActiveCases = getRandomNumberBetween(50, 200);
+const activeCases = getRandomNumberBetween(200, 1000);
+
 const Item = styled(Paper)((props) => ({
   textAlign: "center",
   color: "black",
@@ -103,110 +108,41 @@ const CustomCalendar = () => (
 );
 
 const CustomStackChartBox = (props) => {
-  const smallScreen = useMediaQuery(
-    (theme) => theme.breakpoints.up("xs") && theme.breakpoints.down("md")
-  );
-
-  let [smallScreenSize] = useState(false);
-
-  smallScreenSize = smallScreen ? true : false;
+  var texts = props.titles.map(function (e, i) {
+    return [e, props.subTitles[i]];
+  });
 
   return (
-    <Grid
-      container
-      sx={{
-        flexDirection: { xs: "column", md: "row", lg: "row" },
-        background: "red",
-      }}
-    >
-      <Stack
-        direction={smallScreenSize ? "column" : "row"}
-        spacing={2}
-        sx={{ mr: 2 }}
-      >
-        <Item
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: 250,
-          }}
-        >
-          <Typography
-            sx={{ fontSize: { xs: 35, md: 40, lg: 50 }, fontWeight: 700 }}
+    <Grid container spacing={2} sx={{ mt: 2 }}>
+      {texts.map((text) => (
+        <Grid item xs={12} md={6} lg={3}>
+          <Item
+            sx={{
+              backgroundColor: "rgb(245,245,243)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              py: 2,
+            }}
           >
-            {getRandomNumberBetween(200, 1000)}
-          </Typography>
-          <Typography
-            sx={{ fontSize: { xs: 15, md: 16, lg: 18 }, fontWeight: 300 }}
-          >
-            {props.firstTitle}
-          </Typography>
-        </Item>
-        <Item
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: 250,
-          }}
-        >
-          <Typography
-            sx={{ fontSize: { xs: 35, md: 40, lg: 50 }, fontWeight: 700 }}
-          >
-            {getRandomNumberBetween(200, 1000)}
-          </Typography>
-          <Typography
-            sx={{ fontSize: { xs: 15, md: 16, lg: 18 }, fontWeight: 300 }}
-          >
-            {props.secondTitle}
-          </Typography>
-        </Item>
-      </Stack>
-      <Stack direction={smallScreenSize ? "column" : "row"} spacing={2}>
-        <Item
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: 250,
-          }}
-        >
-          <Typography
-            sx={{ fontSize: { xs: 35, md: 40, lg: 50 }, fontWeight: 700 }}
-          >
-            {getRandomNumberBetween(200, 1000)}
-          </Typography>
-          <Typography
-            sx={{ fontSize: { xs: 15, md: 16, lg: 18 }, fontWeight: 300 }}
-          >
-            {props.thirdTitle}
-          </Typography>
-        </Item>
-        <Item
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: 250,
-          }}
-        >
-          <Typography
-            sx={{ fontSize: { xs: 35, md: 40, lg: 50 }, fontWeight: 700 }}
-          >
-            {getRandomNumberBetween(200, 1000)}
-          </Typography>
-          <Typography
-            sx={{ fontSize: { xs: 15, md: 16, lg: 18 }, fontWeight: 300 }}
-          >
-            {props.fourthTitle}
-          </Typography>
-        </Item>
-      </Stack>
+            <Typography
+              sx={{
+                fontSize: { xs: 25, md: 30, lg: 30 },
+                fontWeight: 600,
+                color: "rgb(26,116,211)",
+              }}
+            >
+              {text[0]}
+            </Typography>
+            <Typography
+              sx={{ fontSize: { xs: 15, md: 16, lg: 16 }, fontWeight: 300 }}
+            >
+              {text[1]}
+            </Typography>
+          </Item>
+        </Grid>
+      ))}
     </Grid>
   );
 };
@@ -249,12 +185,12 @@ const CustomVerticalBarChart = (props) => {
       theme={{
         fontFamily: "Poppins",
         fontSize: 14,
-        axis: { legend: { text: { fontSize: "20px" } } },
+        axis: { legend: { text: { fontSize: "16px" } } },
       }}
       data={mockData}
       keys={["value"]}
       indexBy="day"
-      margin={{ top: 50, bottom: 50, left: 60 }}
+      margin={{ top: 50, right: 30, bottom: 50, left: 60 }}
       padding={0.4}
       valueScale={{ type: "linear" }}
       colors="rgb(26, 116, 211)"
@@ -285,6 +221,111 @@ const CustomVerticalBarChart = (props) => {
 const CustomHorizontalBarChart = () => {};
 
 const CustomPieChart = () => {};
+
+const DailyNewCommunityDengueCases = () => {
+  return (
+    <Grid
+      container
+      spacing={2}
+      direction="column"
+      sx={{
+        margin: "0 auto",
+        width: { xs: "90%", md: "80%", lg: "80%" },
+        mt: { xs: 30, md: 30, lg: 10 },
+      }}
+    >
+      <ChartTitle title="Daily new community dengue cases" />
+      <CustomStackChartBox
+        titles={[
+          hospitalCases,
+          `+${getRandomNumberBetween(0, 50)}`,
+          getRandomNumberBetween(500, 2000),
+          getRandomNumberBetween(500, 2000),
+        ]}
+        subTitles={[
+          "cases today",
+          "change from yesterday",
+          "7 day average",
+          "7 day average a week ago",
+        ]}
+      />
+
+      <Grid container sx={{ height: 400 }}>
+        <CustomVerticalBarChart min={1} max={50} />
+      </Grid>
+    </Grid>
+  );
+};
+
+const HospitalDengueCases = () => {
+  return (
+    <Grid
+      container
+      spacing={2}
+      direction="column"
+      sx={{
+        margin: "0 auto",
+        width: { xs: "90%", md: "80%", lg: "80%" },
+        mt: { xs: 30, md: 30, lg: 10 },
+      }}
+    >
+      <ChartTitle title="Daily new community dengue cases" />
+      <CustomStackChartBox
+        titles={[
+          hospitalCases,
+          `+${getRandomNumberBetween(0, 50)}`,
+          getRandomNumberBetween(500, 2000),
+          getRandomNumberBetween(500, 2000),
+        ]}
+        subTitles={[
+          "cases today",
+          "change from yesterday",
+          "7 day average",
+          "7 day average a week ago",
+        ]}
+      />
+
+      <Grid container sx={{ height: 400 }}>
+        <CustomVerticalBarChart min={1} max={50} />
+      </Grid>
+    </Grid>
+  );
+};
+
+const ICUDengueCases = () => {
+  return (
+    <Grid
+      container
+      spacing={2}
+      direction="column"
+      sx={{
+        margin: "0 auto",
+        width: { xs: "90%", md: "80%", lg: "80%" },
+        mt: { xs: 30, md: 30, lg: 10 },
+      }}
+    >
+      <ChartTitle title="Daily new community dengue cases" />
+      <CustomStackChartBox
+        titles={[
+          hospitalCases,
+          `+${getRandomNumberBetween(0, 50)}`,
+          getRandomNumberBetween(500, 2000),
+          getRandomNumberBetween(500, 2000),
+        ]}
+        subTitles={[
+          "cases today",
+          "change from yesterday",
+          "7 day average",
+          "7 day average a week ago",
+        ]}
+      />
+
+      <Grid container sx={{ height: 400 }}>
+        <CustomVerticalBarChart min={1} max={50} />
+      </Grid>
+    </Grid>
+  );
+};
 
 const Overview = () => {
   return (
@@ -487,7 +528,7 @@ const Overview = () => {
               <Typography
                 sx={{ fontSize: { xs: 35, md: 40, lg: 50 }, fontWeight: 700 }}
               >
-                {getRandomNumberBetween(1, 50)}
+                {hospitalCases}
               </Typography>
               <Typography
                 sx={{ fontSize: { xs: 15, md: 16, lg: 18 }, fontWeight: 300 }}
@@ -507,7 +548,7 @@ const Overview = () => {
               <Typography
                 sx={{ fontSize: { xs: 35, md: 40, lg: 50 }, fontWeight: 700 }}
               >
-                {getRandomNumberBetween(50, 200)}
+                {newActiveCases}
               </Typography>
               <Typography
                 sx={{ fontSize: { xs: 15, md: 16, lg: 18 }, fontWeight: 300 }}
@@ -538,7 +579,7 @@ const Overview = () => {
               <Typography
                 sx={{ fontSize: { xs: 35, md: 40, lg: 50 }, fontWeight: 700 }}
               >
-                {getRandomNumberBetween(1, 10)}
+                {icuCases}
               </Typography>
               <Typography
                 sx={{ fontSize: { xs: 15, md: 16, lg: 18 }, fontWeight: 300 }}
@@ -558,7 +599,7 @@ const Overview = () => {
               <Typography
                 sx={{ fontSize: { xs: 35, md: 40, lg: 50 }, fontWeight: 700 }}
               >
-                {getRandomNumberBetween(200, 1000)}
+                {activeCases}
               </Typography>
               <Typography
                 sx={{ fontSize: { xs: 15, md: 16, lg: 18 }, fontWeight: 300 }}
@@ -600,28 +641,9 @@ const Overview = () => {
         </Grid>
       </Grid>
       {/* Charts */}
-      <Grid
-        container
-        spacing={2}
-        direction="column"
-        sx={{
-          margin: "0 auto",
-          width: { xs: "100%", md: "80%", lg: "80%" },
-          mt: { xs: 30, md: 10, lg: 10 },
-        }}
-      >
-        <ChartTitle title="Daily new community dengue cases" />
-        <CustomStackChartBox
-          firstTitle="cases today"
-          secondTitle="change from yesterday"
-          thirdTitle="7 day average"
-          fourthTitle="7 day average a week ago"
-        />
-
-        <Grid container sx={{ height: 400, ml: { xs: 5, md: 0, lg: 0 } }}>
-          <CustomVerticalBarChart min={1} max={50} />
-        </Grid>
-      </Grid>
+      <DailyNewCommunityDengueCases />
+      <HospitalDengueCases />
+      <ICUDengueCases />
     </Grid>
   );
 };
