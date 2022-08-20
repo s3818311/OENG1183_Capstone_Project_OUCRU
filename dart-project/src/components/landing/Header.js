@@ -1,29 +1,58 @@
 import React from "react";
 import "../../styles/landing/header.css";
-import ai from "../../assets/landing/header.jpeg";
+import lab from "../../assets/landing/lab.avif";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
+const styles = {
+  heroContainer: {
+    height: "100vh",
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${lab})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100%",
+    zIndex: -1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+  logo: {},
+};
 
 const Header = () => {
   return (
-    <div className="dart__header section__padding" id="home">
-      <div className="dart__header-content">
-        <h1 className="gradient__text">Dengue Advance Reading Tools</h1>
-        <p>
-          The Dengue Advanced Readiness Tools (DART) Project is established to
-          accomplish its assignment as one of the pioneered dengue forecasting
-          tools in Vietnam.
-        </p>
-        <div className="dart__header-content__input">
-          <input
-            type="email"
-            placeholder="Enter email to get news from us"
-          ></input>
-          <button type="button">Submit</button>
-        </div>
-      </div>
-      <div className="dart__header-image">
-        <img src={ai} alt="Artificial Intelligence" />
-      </div>
-    </div>
+    <Grid
+      container
+      sx={{
+        mt: 8,
+      }}
+    >
+      <Box sx={styles.heroContainer}>
+        <Typography
+          sx={{
+            fontSize: 40,
+            fontWeight: 400,
+            fontStyle: "italic",
+            color: "white",
+          }}
+        >
+          A modern IT solution for dengue virus outbreak management
+        </Typography>
+        <Typography
+          sx={{
+            mt: 2,
+            fontSize: 20,
+            fontweight: 700,
+            color: "white",
+          }}
+        >
+          Partnership with <b>OUCRU</b>
+        </Typography>
+      </Box>
+    </Grid>
   );
 };
 

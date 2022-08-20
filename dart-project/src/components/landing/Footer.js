@@ -5,11 +5,18 @@ import "../../styles/landing/footer.css";
 const Footer = () => (
   <div className="gpt3__footer section__padding">
     <div className="gpt3__footer-heading">
-      <h1 className="gradient__text">Contact US</h1>
+      <h1 className="footer__heading__text">Contact Us</h1>
     </div>
 
     <div className="gpt3__footer-btn">
       <p>Request Early Access</p>
+    </div>
+
+    <div className="gpt3__footer-content">
+      This website is in beta version. The purpose is to act as an example of
+      what the real DART website look like in the official version. As such, any
+      data you see on here are mostly mock data and used for visualisation
+      purposes only. Please do not mistake any of these as real-life statistics.
     </div>
 
     <div className="gpt3__footer-links">

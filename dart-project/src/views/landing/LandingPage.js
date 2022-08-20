@@ -1,56 +1,19 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import * as ROUTES from "../../enums/routes.js";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import { useEffect, useState, useContext } from "react";
+import { useEffect } from "react";
 import { localStorageUtil } from "../../utils/localStorageUtil";
 import * as STORAGE from "../../enums/localStorage";
-import { AccountContext } from "../../utils/accountUtil";
-import { useNavigate } from "react-router-dom";
 import Footer from "../../components/landing/Footer.js";
 import Blog from "../../components/landing/Blog.js";
 import Possibility from "../../components/landing/Possibility.js";
-import Features from "../../components/landing/Features.js";
 import Header from "../../components/landing/Header.js";
 import WhatIsApp from "../../components/landing/WhatIsApp.js";
 import NavBar from "../../components/landing/NavBar.js";
-
+import Dengue from "../../components/landing/Dengue.js";
+import DengueSymptoms from "../../components/landing/DengueSymptoms.js";
+import DashboardIntro from "../../components/landing/DashboardIntro.js";
+import Overview from "../../components/landing/Overview.js";
 import "../../styles/landing/landing.css";
-
-const DASHBOARD_ROUTE = "/dashboard/" + ROUTES.DASHBOARD.OVERVIEW;
-
-function LoginOrLogoutButton() {
-  const [status, setStatus] = useState(false);
-  let navigate = useNavigate();
-
-  const { getSession, leaveSession } = useContext(AccountContext);
-
-  useEffect(() => {
-    getSession().then((session) => {
-      setStatus(true);
-    });
-  });
-
-  const handleLogin = () => {
-    navigate(ROUTES.PORTAL.SIGNIN);
-  };
-
-  const handleLogout = () => {
-    leaveSession();
-    setStatus(false);
-  };
-
-  return (
-    <Box>
-      {!status ? (
-        <Button onClick={handleLogin}>Login </Button>
-      ) : (
-        <Button onClick={handleLogout}>Logout</Button>
-      )}
-    </Box>
-  );
-}
 
 function LandingPage() {
   useEffect(() => {
@@ -61,26 +24,17 @@ function LandingPage() {
   }, []);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      {/* <h2>LANDING PAGE </h2>
-      <RouterLink to={DASHBOARD_ROUTE}>
-        Click here to go to dashboard
-      </RouterLink>
-
-      <LoginOrLogoutButton /> */}
-      <div>
-        <div className="gradient__bg">
-          <NavBar />
-          <Header />
-        </div>
-        <WhatIsApp />
-        <Features />
-        <Blog />
-        <Possibility />
-        <div>cta</div>
-
-        <Footer />
-      </div>
+    <Box>
+      <NavBar />
+      <Header />
+      <WhatIsApp />
+      <Dengue />
+      <DengueSymptoms />
+      <DashboardIntro />
+      <Overview />
+      <Blog />
+      <Possibility />
+      <Footer />
     </Box>
   );
 }

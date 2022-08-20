@@ -1,33 +1,52 @@
-import React from "react";
-import "../../styles/landing/navbar.css";
+import React, { useState, useContext, useEffect } from "react";
+import { AccountContext } from "../../utils/accountUtil";
 import logo from "../../dart_proj.svg";
+import AccountButton from "../shared/AccountButton";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const NavBar = () => {
+  const [status, setStatus] = useState(false);
+
+  const { getSession } = useContext(AccountContext);
+
+  useEffect(() => {
+    getSession().then((session) => {
+      setStatus(true);
+    });
+  });
+
   return (
-    <div className="dart__navbar">
-      <div className="dart__navbar-links">
-        <div className="dart__navbar-links_logo">
-          <img src={logo} alt="logo" />
-        </div>
-        <div className="dart__navbar-links_container">
-          <p>
-            <a href="#home">Home</a>
-          </p>
-          <p>
-            <a href="#aboutus">About Us</a>
-          </p>
-          <p>
-            <a href="#home">Features</a>
-          </p>
-          <p>
-            <a href="#home">Contact</a>
-          </p>
-        </div>
-      </div>
-      <div className="dart__navbar-sign">
-        <button type="button">Sign In</button>
-      </div>
-    </div>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar
+        position="fixed"
+        sx={{
+          backgroundColor: "rgba(255,255,255, 0.9)",
+        }}
+      >
+        <Toolbar>
+          <Box
+            component="img"
+            src={logo}
+            sx={{ width: "50px", height: "50px", mr: 2 }}
+          ></Box>
+
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, color: "black", fontWeight: 800, fontSize: 23 }}
+          >
+            DART
+          </Typography>
+          <AccountButton status={status} />
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 };
 

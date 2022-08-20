@@ -14,7 +14,7 @@
     font-size: 62px;
     line-height: 75px;
     font-family: var(--font-family);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .gpt3__blog-container {
@@ -34,6 +34,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
 }
+
 
 @media screen and (max-width: 990px) {
     .gpt3__blog-container {

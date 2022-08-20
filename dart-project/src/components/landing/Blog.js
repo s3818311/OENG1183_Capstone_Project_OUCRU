@@ -6,6 +6,8 @@ import blog4 from "../../assets/landing/blog4.png";
 import blog5 from "../../assets/landing/blog5.jpeg";
 import "../../styles/landing/blog.css";
 import "../../styles/landing/article.css";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 
 const Article = ({ imgUrl, date, text }) => (
   <div className="gpt3__blog-container_article">
@@ -17,7 +19,7 @@ const Article = ({ imgUrl, date, text }) => (
         <p>{date}</p>
         <h3>{text}</h3>
       </div>
-      <p>Read Full Article</p>
+      <p>Access the dataset</p>
     </div>
   </div>
 );
@@ -25,10 +27,28 @@ const Article = ({ imgUrl, date, text }) => (
 const Blog = () => (
   <div className="gpt3__blog section__padding" id="blog">
     <div className="gpt3__blog-heading">
-      <h1 className="gradient__text">
-        {" "}
-        Our available dataset and visualization
-      </h1>
+      <Typography
+        sx={{
+          background:
+            "linear-gradient(90deg, rgba(40, 74, 255, 1) 0%, rgba(18, 30, 33, 1) 100%);",
+          backgroundClip: "text",
+          color: "transparent",
+          fontSize: { xs: 30, md: 40, lg: 50 },
+          fontWeight: 700,
+          lineHeight: { xs: "42px", md: "52px", lg: "75px" },
+        }}
+      >
+        Our available dataset and visualisation
+      </Typography>
+      <Divider
+        variant="left"
+        sx={{
+          width: "5%",
+          mt: 1,
+          borderBottomWidth: 5,
+          background: "rgb(255,138,113)",
+        }}
+      />
     </div>
     <div className="gpt3__blog-container">
       <div className="gpt3__blog-container_groupA">

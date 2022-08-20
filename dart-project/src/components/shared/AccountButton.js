@@ -159,10 +159,11 @@ function AccountMenu(props) {
 }
 
 const CustomLoginButton = styled(Button)(({ theme }) => ({
-  color: "rgb(25,118,210)",
-  backgroundColor: "white",
+  color: "white",
+  backgroundColor: "black",
+  borderRadius: "5px",
   "&:hover": {
-    backgroundColor: grey[100],
+    backgroundColor: "rgba(0,0,0, 0.9)",
   },
   boxShadow: "none",
 }));
