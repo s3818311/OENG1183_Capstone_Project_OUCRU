@@ -773,9 +773,10 @@ const Overview = () => {
           margin: "0 auto",
           height: { xs: 200, md: 200, lg: 300 },
           mt: 10,
+          justifyContent: "center",
         }}
       >
-        <ChartTitle title="Total daily dengue cases in Vietnam (2022)" ml={2} />
+        <ChartTitle title="Total daily dengue cases in Vietnam (2022)" />
         <CustomCalendar />
       </Grid>
       <Grid
@@ -785,7 +786,7 @@ const Overview = () => {
           margin: "0 auto",
           flexDirection: { xs: "row", md: "row", lg: "row" },
           justifyContent: "center",
-          mt: { xs: 0, md: 3, lg: 1 },
+          mt: { xs: 0, md: 2, lg: 3 },
         }}
       >
         <Stack direction="row" spacing={1} sx={{ mr: { xs: 3, md: 5, lg: 5 } }}>
@@ -849,7 +850,7 @@ const Overview = () => {
         sx={{
           margin: "0 auto",
           width: { xs: "95%", md: "80%", lg: "80%" },
-          mt: 10,
+          mt: 5,
         }}
       >
         <Grid item xs={12} md={12} lg={4}>

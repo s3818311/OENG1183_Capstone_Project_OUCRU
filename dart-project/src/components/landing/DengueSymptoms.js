@@ -88,9 +88,9 @@ const symptoms = [
   /* Symptom */
   {
     src: nauseaVomit,
-    title: "Nausea/Vomitting",
+    title: "Nausea/Vomiting",
     content:
-      "When infected, you may lose your appetite and feel nausea all the time. Vomitting can also occur and should be treated carefully due to dehydration.",
+      "When infected, you may lose your appetite and feel nausea all the time. Vomiting can also occur and should be treated carefully due to dehydration.",
     chips: [
       {
         label: "Mild",
@@ -228,7 +228,17 @@ const SecondSymptomsRow = () => {
       }}
     >
       {symptoms.slice(4, 8).map((symptom) => (
-        <Grid item xs={12} md={6} lg={3}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <SymptomCard info={symptom} />
         </Grid>
       ))}
