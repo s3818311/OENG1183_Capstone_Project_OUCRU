@@ -33,10 +33,11 @@ const Header = () => {
       <Box sx={styles.heroContainer}>
         <Typography
           sx={{
-            fontSize: 40,
+            fontSize: { xs: 25, md: 30, lg: 35 },
             fontWeight: 400,
             fontStyle: "italic",
             color: "white",
+            mx: { xs: 2, md: 2, lg: 3 },
           }}
         >
           A modern IT solution for dengue virus outbreak management
@@ -44,7 +45,7 @@ const Header = () => {
         <Typography
           sx={{
             mt: 2,
-            fontSize: 20,
+            fontSize: { xs: 15, md: 18, lg: 20 },
             fontweight: 700,
             color: "white",
           }}

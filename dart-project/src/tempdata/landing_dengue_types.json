@@ -1,0 +1,26 @@
+[
+    {
+      "id": "DENV-1",
+      "label": "DENV-1",
+      "value": 328,
+      "color": "hsl(329, 70%, 50%)"
+    },
+    {
+      "id": "DENV-2",
+      "label": "DENV-2",
+      "value": 210,
+      "color": "hsl(232, 70%, 50%)"
+    },
+    {
+      "id": "DENV-3",
+      "label": "DENV-3",
+      "value": 489,
+      "color": "hsl(180, 70%, 50%)"
+    },
+    {
+      "id": "DENV-4",
+      "label": "DENV-4",
+      "value": 57,
+      "color": "hsl(136, 70%, 50%)"
+    }
+ ]
