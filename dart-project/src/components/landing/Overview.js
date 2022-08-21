@@ -644,7 +644,7 @@ const DengueICUCases = () => {
         mt: 10,
       }}
     >
-      <ChartTitle title="Daily new community dengue cases" />
+      <ChartTitle title="People in ICU due to dengue" />
       <CustomStackChartBox
         titles={[
           icuCases,
@@ -679,7 +679,7 @@ const DengueDeathCases = () => {
         mt: 10,
       }}
     >
-      <ChartTitle title="Daily new community dengue cases" />
+      <ChartTitle title="Daily dengue deaths" />
       <CustomStackChartBox
         titles={[
           deathCases,
