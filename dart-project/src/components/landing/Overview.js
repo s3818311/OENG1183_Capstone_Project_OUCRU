@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import { ResponsiveCalendar, CalendarCanvas } from "@nivo/calendar";
+import { ResponsiveCalendar } from "@nivo/calendar";
 import { generateDayCounts } from "@nivo/generators";
 import { ResponsiveBar } from "@nivo/bar";
 import Stack from "@mui/material/Stack";

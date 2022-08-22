@@ -12,7 +12,6 @@ const styles = {
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100%",
-    zIndex: -1,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -24,12 +23,7 @@ const styles = {
 
 const Header = () => {
   return (
-    <Grid
-      container
-      sx={{
-        mt: 8,
-      }}
-    >
+    <Grid container sx={{}}>
       <Box sx={styles.heroContainer}>
         <Typography
           sx={{
