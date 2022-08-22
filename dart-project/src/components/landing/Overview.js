@@ -13,6 +13,7 @@ import { dateUtil } from "../../utils/dateUtil";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ResponsivePie } from "@nivo/pie";
 
+const extraSpace = "&nbsp;";
 const from = new Date(2022, 0, 1);
 const to = new Date();
 const calendarTooltipOptions = {
@@ -118,7 +119,7 @@ const ChartTitle = (props) => {
         fontWeight: 600,
         mb: 0,
         ml: props.ml,
-        textAlign: "left",
+        textAlign: props.textAlign ?? "left",
       }}
     >
       {props.title}
@@ -776,72 +777,119 @@ const Overview = () => {
           justifyContent: "center",
         }}
       >
-        <ChartTitle title="Total daily dengue cases in Vietnam (2022)" />
+        <ChartTitle
+          title="Total daily dengue cases in Vietnam (2022)"
+          textAlign="center"
+        />
         <CustomCalendar />
       </Grid>
       <Grid
         container
         sx={{
-          width: { xs: "90%", md: "90%", lg: "70%" },
+          width: { xs: "70%", md: "70%", lg: "80%" },
           margin: "0 auto",
-          flexDirection: { xs: "row", md: "row", lg: "row" },
           justifyContent: "center",
           mt: { xs: 0, md: 2, lg: 3 },
         }}
+        spacing={1}
       >
-        <Stack direction="row" spacing={1} sx={{ mr: { xs: 3, md: 5, lg: 5 } }}>
+        <Grid
+          item
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: { xs: "center", md: "center", lg: "center" },
+          }}
+          xs={6}
+          md={3}
+          lg={2}
+        >
           <Item
             sx={{
-              width: { xs: 15, md: 20, lg: 20 },
-              height: { xs: 15, md: 20, lg: 20 },
+              width: { xs: 15, md: 18, lg: 20 },
+              height: { xs: 15, md: 18, lg: 20 },
               backgroundColor: "rgb(232,232,232)",
+              mr: 1,
             }}
           />
-          <Typography sx={{ fontSize: { xs: 13, md: 15, lg: 15 }, mr: 2 }}>
+          <Typography sx={{ fontSize: { xs: 13, md: 14, lg: 15 }, mr: 2 }}>
             {" "}
             unreported
           </Typography>
-        </Stack>
+        </Grid>
 
-        <Stack direction="row" spacing={1} sx={{ mr: { xs: 3, md: 5, lg: 5 } }}>
+        <Grid
+          item
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: { xs: "center", md: "center", lg: "center" },
+          }}
+          xs={6}
+          md={3}
+          lg={2}
+        >
           <Item
             sx={{
-              width: { xs: 15, md: 20, lg: 20 },
-              height: { xs: 15, md: 20, lg: 20 },
+              width: { xs: 15, md: 18, lg: 20 },
+              height: { xs: 15, md: 18, lg: 20 },
               backgroundColor: "rgba(97,205,187,0.8)",
+              mr: 1,
             }}
           />
-          <Typography sx={{ fontSize: { xs: 13, md: 15, lg: 15 }, mr: 2 }}>
+          <Typography sx={{ fontSize: { xs: 13, md: 14, lg: 15 }, mr: 2 }}>
             {" "}
-            low
+            low&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </Typography>
-        </Stack>
-        <Stack direction="row" spacing={1} sx={{ mr: { xs: 3, md: 5, lg: 5 } }}>
+        </Grid>
+        <Grid
+          item
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: { xs: "center", md: "center", lg: "center" },
+          }}
+          xs={6}
+          md={3}
+          lg={2}
+        >
           <Item
             sx={{
-              width: { xs: 15, md: 20, lg: 20 },
-              height: { xs: 15, md: 20, lg: 20 },
+              width: { xs: 15, md: 18, lg: 20 },
+              height: { xs: 15, md: 18, lg: 20 },
               backgroundColor: "rgb(232,193,160)",
+              mr: 1,
             }}
           />
-          <Typography sx={{ fontSize: { xs: 13, md: 15, lg: 15 }, mr: 2 }}>
+          <Typography sx={{ fontSize: { xs: 13, md: 14, lg: 15 }, mr: 2 }}>
             {" "}
-            medium
+            medium&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </Typography>
-        </Stack>
-        <Stack direction="row" spacing={1} sx={{ mr: { xs: 3, md: 5, lg: 5 } }}>
+        </Grid>
+        <Grid
+          item
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: { xs: "center", md: "center", lg: "center" },
+          }}
+          xs={6}
+          md={3}
+          lg={2}
+        >
           <Item
             sx={{
-              width: { xs: 15, md: 20, lg: 20 },
-              height: { xs: 15, md: 20, lg: 20 },
+              width: { xs: 15, md: 18, lg: 20 },
+              height: { xs: 15, md: 18, lg: 20 },
               backgroundColor: "rgb(244,117,96)",
+              mr: 1,
             }}
           />
-          <Typography sx={{ fontSize: { xs: 13, md: 15, lg: 15 }, mr: 2 }}>
+          <Typography sx={{ fontSize: { xs: 13, md: 14, lg: 15 }, mr: 2 }}>
             {" "}
-            high
+            high&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </Typography>
-        </Stack>
+        </Grid>
       </Grid>
       {/* Overview */}
       <Grid
