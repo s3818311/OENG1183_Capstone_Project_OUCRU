@@ -13,7 +13,6 @@ import { dateUtil } from "../../utils/dateUtil";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ResponsivePie } from "@nivo/pie";
 
-const extraSpace = "&nbsp;";
 const from = new Date(2022, 0, 1);
 const to = new Date();
 const calendarTooltipOptions = {
@@ -243,7 +242,7 @@ const CustomDengueAgeBarChart = (props) => {
       data={mockData}
       keys={["value"]}
       indexBy="ageGroup"
-      margin={{ top: 50, right: 30, bottom: 50, left: 60 }}
+      margin={{ top: 50, right: 0, bottom: 50, left: 60 }}
       padding={0.4}
       valueScale={{ type: "linear" }}
       colors="rgb(26, 116, 211)"
@@ -348,7 +347,7 @@ const CustomDengueCasesBarChart = (props) => {
       data={mockData}
       keys={["value"]}
       indexBy="day"
-      margin={{ top: 50, right: 30, bottom: 50, left: 60 }}
+      margin={{ top: 50, right: 40, bottom: 50, left: 60 }}
       padding={0.4}
       valueScale={{ type: "linear" }}
       colors="rgb(26, 116, 211)"
