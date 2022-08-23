@@ -1,9 +1,8 @@
 import { Router } from "express";
-
-import BigQuery from "@google-cloud/bigquery";
-
 var router = Router();
 require("dotenv").config();
+import BigQuery from "@google-cloud/bigquery";
+
 /* GET users listing. */
 router.get("/:query_id", function (req, res, next) {
   queryStackOverflow("nodejs-bigquery", req.params.query_id).then((result) =>
@@ -11,10 +10,12 @@ router.get("/:query_id", function (req, res, next) {
   );
 });
 
-function queryStackOverflow(projectId, query_id) {
+async function queryStackOverflow(projectId, query_id) {
   // Creates a client
   const bigquery = new BigQuery({
     projectId: projectId,
+    // key file name - the relative file path to your service account key file
+    // keyFilename: 'something.json
   });
 
   var sqlQuery;
@@ -72,6 +73,7 @@ function queryStackOverflow(projectId, query_id) {
   // Query options list: https://cloud.google.com/bigquery/docs/reference/v2/jobs/query
   const options = {
     query: sqlQuery,
+    location: "US",
     useLegacySql: false, // Use standard SQL syntax for queries.
   };
 
