@@ -1,101 +1,41 @@
-import { Router } from "express";
-var router = Router();
-require("dotenv").config();
-import BigQuery from "@google-cloud/bigquery";
+var express = require("express");
+var router = express.Router();
 
-/* GET users listing. */
-router.get("/:query_id", function (req, res, next) {
-  queryStackOverflow("nodejs-bigquery", req.params.query_id).then((result) =>
-    res.send(result)
-  );
+const { BigQuery } = require("@google-cloud/bigquery");
+const auth = {
+  keyFilename: "micro-enigma-359206-1dd3be2aaa78.json",
+  projectId: "micro-enigma-359206",
+};
+
+const bigquery = new BigQuery(auth);
+
+router.get("/", function (req, res, next) {
+  query()
+    .then((result) => res.send(result))
+    .catch((err) => console.error("ERROR:", err));
 });
 
-async function queryStackOverflow(projectId, query_id) {
-  // Creates a client
-  const bigquery = new BigQuery({
-    projectId: projectId,
-    // key file name - the relative file path to your service account key file
-    // keyFilename: 'something.json
-  });
+async function query() {
+  const query = `SELECT * 
+    FROM \`micro-enigma-359206.test_dataset.chirps_2022\` 
+    WHERE \`date\` BETWEEN "2022.01.01" AND "2022.02.01" 
+    ORDER BY \`date\``;
 
-  var sqlQuery;
-
-  console.log("query_id:", query_id);
-
-  switch (query_id) {
-    case "1":
-      // The SQL query to run
-      sqlQuery = `SELECT
-      id,
-      CONCAT(
-        'https://stackoverflow.com/questions/',
-        CAST(id as STRING)) as url,
-      view_count,
-      title,
-      creation_date,
-      answer_count
-      FROM \`bigquery-public-data.stackoverflow.posts_questions\`
-      ORDER BY view_count DESC
-      LIMIT 10`;
-      break;
-    case "2":
-      // The SQL query to run
-      sqlQuery = `SELECT
-      id,
-      CONCAT(
-        'https://stackoverflow.com/questions/',
-        CAST(id as STRING)) as url,
-      view_count,
-      title,
-      creation_date,
-      answer_count
-      FROM \`bigquery-public-data.stackoverflow.posts_questions\`
-      ORDER BY creation_date DESC
-      LIMIT 10`;
-      break;
-    case "3":
-      // The SQL query to run
-      sqlQuery = `SELECT
-      id,
-      CONCAT(
-        'https://stackoverflow.com/questions/',
-        CAST(id as STRING)) as url,
-      view_count,
-      title,
-      creation_date,
-      answer_count
-      FROM \`bigquery-public-data.stackoverflow.posts_questions\`
-      ORDER BY answer_count DESC
-      LIMIT 10`;
-      break;
-  }
-
-  // Query options list: https://cloud.google.com/bigquery/docs/reference/v2/jobs/query
+  // For all options, see https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query
   const options = {
-    query: sqlQuery,
-    location: "US",
-    useLegacySql: false, // Use standard SQL syntax for queries.
+    query: query,
   };
 
-  // Runs the query
-  return bigquery
-    .query(options)
-    .then((results) => {
-      const rows = results[0];
-      return rows;
-    })
-    .catch((err) => {
-      console.error("ERROR:", err);
-    });
+  // Run the query as a job
+  const [job] = await bigquery.createQueryJob(options);
+  console.log(`Job ${job.id} started.`);
+
+  // Wait for the query to finish
+  const [rows] = await job.getQueryResults();
+
+  // Print the results
+  console.log("Rows:");
+  rows.forEach((row) => console.log(row));
 }
 
-function printResult(rows) {
-  console.log("Query Results:");
-  rows.forEach(function (row) {
-    let url = row["url"];
-    let viewCount = row["view_count"];
-    console.log(`url: ${url}, ${viewCount} views`);
-  });
-}
-
-export default router;
+module.exports = router;
