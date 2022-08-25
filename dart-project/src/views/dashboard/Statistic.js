@@ -4,9 +4,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
 import BarChartContainer from "../../components/dashboard/statistic/BarChartContainer";
 import LineChartContainer from "../../components/dashboard/statistic/LineChartContainer";
-import StreamChartContainer from "../../components/dashboard/statistic/StreamChartContainer";
-import PieChartContainer from "../../components/dashboard/statistic/PieChartContainer";
-import StatisticTableContainer from "../../components/dashboard/statistic/StatisticTableContainer";
 import FunnelChartContainer from "../../components/dashboard/statistic/FunnelChartContainer.js";
 
 const Statistic = () => {
@@ -27,7 +24,7 @@ const Statistic = () => {
       <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
         <Grid container spacing={2}>
           {/* <StreamChartContainer xs={12} md={7} lg={7} /> */}
-          <PieChartContainer xs={12} md={12} lg={12} />
+          <BarChartContainer xs={12} md={12} lg={12} />
         </Grid>
       </Box>
       <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>

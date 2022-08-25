@@ -17,11 +17,8 @@ router.get("/", function (req, res, next) {
 
 async function query() {
   const query = `SELECT * 
-    FROM \`micro-enigma-359206.test_dataset.chirps_2022\` 
-    WHERE \`date\` BETWEEN "2022.01.01" AND "2022.02.01" 
-    ORDER BY \`date\``;
+    FROM \`micro-enigma-359206.dart.dynamic_world_land_cover\``;
 
-  // For all options, see https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query
   const options = {
     query: query,
   };
@@ -36,6 +33,8 @@ async function query() {
   // Print the results
   console.log("Rows:");
   rows.forEach((row) => console.log(row));
+
+  return rows;
 }
 
 module.exports = router;

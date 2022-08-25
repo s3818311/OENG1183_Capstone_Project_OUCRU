@@ -2,8 +2,11 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { ResponsiveBar } from "@nivo/bar";
 import Typography from "@mui/material/Typography";
+import { useEffect, useState } from "react";
 
-const barData = require("../../../tempdata/elevation.json");
+function randomNum(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 const BarTitle = () => {
   return (
@@ -13,58 +16,22 @@ const BarTitle = () => {
       align="center"
       sx={{ marginTop: 1, marginBottom: -5 }}
     >
-      Ho Chi Minh City elevation distribution (m)
+      Ho Chi Minh City land cover distribution
     </Typography>
   );
 };
 
-const StatisticBarChart = () => (
+const StatisticBarChart = (props) => (
   <ResponsiveBar
-    data={barData}
-    layout="horizontal"
-    keys={["val"]}
-    indexBy="ele"
+    data={props.data}
+    keys={props.keys}
+    indexBy="date"
     margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
     padding={0.3}
+    groupMode="grouped"
     valueScale={{ type: "linear" }}
     indexScale={{ type: "band", round: true }}
     colors={{ scheme: "nivo" }}
-    colorBy="indexValue"
-    isInteractive={false}
-    defs={[
-      {
-        id: "dots",
-        type: "patternDots",
-        background: "inherit",
-        color: "#38bcb2",
-        size: 4,
-        padding: 1,
-        stagger: true,
-      },
-      {
-        id: "lines",
-        type: "patternLines",
-        background: "inherit",
-        color: "#eed312",
-        rotation: -45,
-        lineWidth: 6,
-        spacing: 10,
-      },
-    ]}
-    fill={[
-      {
-        match: {
-          id: "fries",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "sandwich",
-        },
-        id: "lines",
-      },
-    ]}
     borderColor={{
       from: "color",
       modifiers: [["darker", 1.6]],
@@ -75,7 +42,7 @@ const StatisticBarChart = () => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "country",
+      legend: "date",
       legendPosition: "middle",
       legendOffset: 32,
     }}
@@ -83,25 +50,88 @@ const StatisticBarChart = () => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "Height from sea level",
+      legend: "land cover",
       legendPosition: "middle",
       legendOffset: -40,
     }}
+    enableLabel={false}
     labelSkipWidth={12}
     labelSkipHeight={12}
     labelTextColor={{
       from: "color",
       modifiers: [["darker", 1.6]],
     }}
+    legends={[
+      {
+        dataFrom: "keys",
+        anchor: "bottom-right",
+        direction: "column",
+        justify: false,
+        translateX: 120,
+        translateY: 0,
+        itemsSpacing: 2,
+        itemWidth: 100,
+        itemHeight: 20,
+        itemDirection: "left-to-right",
+        itemOpacity: 0.85,
+        symbolSize: 20,
+        effects: [
+          {
+            on: "hover",
+            style: {
+              itemOpacity: 1,
+            },
+          },
+        ],
+      },
+    ]}
     role="application"
-    ariaLabel="Nivo bar chart demo"
-    barAriaLabel={function (e) {
-      return e.id + ": " + e.formattedValue + " in country: " + e.indexValue;
-    }}
   />
 );
 
+async function getLandCoverData() {
+  try {
+    let response = await fetch("http://localhost:9000/landcover");
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+    // Handle errors here
+  }
+}
+
 const BarChartContainer = (props) => {
+  const [landCoverData, setLandCoverData] = useState([{}]);
+  const [keys, setKeys] = useState([]);
+
+  useEffect(() => {
+    getLandCoverData().then((data) => {
+      let processedData = [];
+      data.forEach((element) => {
+        let landCoverTitles = Object.keys(element);
+        let landCoverValues = Object.values(element);
+        landCoverTitles.shift();
+        landCoverValues.shift();
+
+        setKeys(landCoverTitles);
+        let mockData = {
+          date: element.date,
+        };
+        for (let i = 0; i < landCoverTitles.length; i++) {
+          mockData[landCoverTitles[i]] = landCoverValues[i];
+          mockData[`${landCoverTitles[i]}Color`] = `hsl(${randomNum(
+            0,
+            360
+          )}, ${randomNum(0, 100)}%, ${randomNum(0, 100)}%)`;
+        }
+        processedData.push(mockData);
+      });
+
+      console.log("hi");
+      console.log(processedData);
+
+      setLandCoverData(processedData);
+    });
+  }, []);
   return (
     <Grid item xs={props.xs} md={props.md} lg={props.lg} sx={props.sx}>
       <Paper
@@ -111,7 +141,7 @@ const BarChartContainer = (props) => {
         }}
       >
         <BarTitle />
-        <StatisticBarChart />
+        <StatisticBarChart data={landCoverData} keys={keys} />
       </Paper>
     </Grid>
   );
