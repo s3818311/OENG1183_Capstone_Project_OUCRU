@@ -2,8 +2,23 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { ResponsivePie } from "@nivo/pie";
 import Typography from "@mui/material/Typography";
+import { useEffect, useState } from "react";
 
-const pieData = require("../../../tempdata/pie_pct.json");
+// const pieData = require("../../../tempdata/pie_pct.json");
+
+const randomNum = (min, max) => {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+async function getLandCoverData() {
+  try {
+    let response = await fetch("http://localhost:9000/landcover");
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+    // Handle errors here
+  }
+}
 
 const PieTitle = () => {
   return (
@@ -18,9 +33,9 @@ const PieTitle = () => {
   );
 };
 
-const StatisticPieChart = () => (
+const StatisticPieChart = (props) => (
   <ResponsivePie
-    data={pieData}
+    data={props.data}
     margin={{ top: 80, right: 80, bottom: 80, left: 80 }}
     colors={{ datum: "data.color" }}
     valueFormat=" >-.4%"
@@ -93,6 +108,42 @@ const StatisticPieChart = () => (
 );
 
 const PieChartContainer = (props) => {
+  const [landCoverData, setLandCoverData] = useState([{}]);
+
+  useEffect(() => {
+    getLandCoverData().then((data) => {
+      let processedData = [];
+      data = data[0];
+      let landCoverTitle = Object.keys(data);
+      let landCoverValue = Object.values(data);
+      landCoverTitle.shift();
+      landCoverValue.shift();
+
+      // console.log("test:" + landCoverTitle);
+
+      let total_landcover = landCoverValue.reduce((total, cur) => {
+        return total + cur;
+      }, 0);
+
+      for (let i = 0; i < landCoverTitle.length; i++) {
+        let mockData = {};
+        mockData["id"] = landCoverTitle[i];
+        mockData["label"] = landCoverTitle[i];
+        mockData["value"] = landCoverValue[i] / total_landcover;
+        mockData["color"] = `hsl(${randomNum(0, 360)}, ${randomNum(
+          0,
+          100
+        )}%, ${randomNum(0, 100)}%)`;
+
+        processedData.push(mockData);
+      }
+
+      console.log(processedData);
+
+      setLandCoverData(processedData);
+    });
+  }, []);
+
   return (
     <Grid item xs={props.xs} md={props.md} lg={props.lg} sx={props.sx}>
       <Paper
@@ -102,7 +153,7 @@ const PieChartContainer = (props) => {
         }}
       >
         <PieTitle />
-        <StatisticPieChart />
+        <StatisticPieChart data={landCoverData} />
       </Paper>
     </Grid>
   );
