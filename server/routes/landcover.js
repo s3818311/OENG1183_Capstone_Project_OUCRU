@@ -4,8 +4,7 @@ var query = require("./bigquery");
 
 router.get("/", function (req, res, next) {
   query(`SELECT * 
-  FROM \`micro-enigma-359206.dart.dynamic_world_land_cover\`
-  WHERE \`date\`="2015-2016"`)
+  FROM \`micro-enigma-359206.dart.dynamic_world_land_cover\``)
     .then((result) => res.send(result))
     .catch((err) => console.error("ERROR:", err));
 });

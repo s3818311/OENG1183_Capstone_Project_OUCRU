@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router-dom";
 import * as ROUTES from "../../enums/routes.js";
+import { useNavigate } from "react-router-dom";
 
 const DASHBOARD_ROUTE = "/dashboard/" + ROUTES.DASHBOARD.OVERVIEW;
 
@@ -143,117 +144,123 @@ const RasterMapIcon = () => {
     </Grid>
   );
 };
-const DashboardIntro = () => (
-  <Grid
-    container
-    spacing={2}
-    sx={{
-      width: "100%",
-      backgroundColor: "rgba(26,116,211,0.8)",
-      margin: "0 auto",
-      mt: 10,
-      py: 15,
-      flexDirection: { xs: "column-reverse", md: "row", lg: "row" },
-    }}
-  >
+
+function DashboardIntro() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(DASHBOARD_ROUTE);
+  };
+  return (
     <Grid
       container
-      xs={12}
-      md={6}
-      lg={6}
+      spacing={2}
       sx={{
-        alignItems: "center",
-        justifyContent: { xs: "center" },
-        flexDirection: "column",
+        width: "100%",
+        backgroundColor: "rgba(26,116,211,0.8)",
+        margin: "0 auto",
+        mt: 10,
+        py: 15,
+        flexDirection: { xs: "column-reverse", md: "row", lg: "row" },
       }}
     >
-      <Typography
-        sx={{
-          fontSize: { xs: 30, md: 45, lg: 55 },
-          fontWeight: 700,
-          color: "white",
-          textAlign: "center",
-          width: { xs: "100%", md: "90%", lg: "95%" },
-        }}
-      >
-        Visualisation Dashboard
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: { xs: 18, md: 20, lg: 22 },
-          fontWeight: 500,
-          color: "rgba(255,255,255,0.9)",
-          textAlign: "center",
-          mt: 2,
-          mb: 5,
-        }}
-      >
-        For professionals
-      </Typography>
       <Grid
         container
+        xs={12}
+        md={6}
+        lg={6}
         sx={{
-          flexDirection: "row",
-          width: { xs: "90%", md: "100%", lg: "80%" },
-          margin: "0 auto",
-          mb: 5,
+          alignItems: "center",
+          justifyContent: { xs: "center" },
+          flexDirection: "column",
         }}
       >
-        <InteractiveIcon />
-        <CustomizeIcon />
-        <RasterMapIcon />
-      </Grid>
-      <Typography
-        sx={{
-          fontSize: { xs: 16, md: 18, lg: 20 },
-          fontWeight: 400,
-          color: "white",
-          textAlign: "center",
-          width: "80%",
-          margin: "0 auto",
-          mb: 5,
-        }}
-      >
-        Advanced, interactive data visualization tool that tracks, analyzes and
-        displays key metrics across different datasets in real-time. Clinicians,
-        healthcare providers and scientists can make conclusions on future
-        courses of action for dengue outbreak management.
-      </Typography>
-      <StyledButton>
         <Typography
           sx={{
-            fontWeight: 600,
-            fontSize: 15,
+            fontSize: { xs: 30, md: 45, lg: 55 },
+            fontWeight: 700,
+            color: "white",
+            textAlign: "center",
+            width: { xs: "100%", md: "90%", lg: "95%" },
           }}
         >
-          {" "}
-          <RouterLink to={DASHBOARD_ROUTE}>Try now</RouterLink>
+          Visualisation Dashboard
         </Typography>
-      </StyledButton>
-    </Grid>
-    <Grid
-      container
-      xs={12}
-      md={6}
-      lg={6}
-      sx={{
-        overflow: "hidden",
-      }}
-    >
-      <Box
-        component="img"
-        src={dashboardIntro}
+        <Typography
+          sx={{
+            fontSize: { xs: 18, md: 20, lg: 22 },
+            fontWeight: 500,
+            color: "rgba(255,255,255,0.9)",
+            textAlign: "center",
+            mt: 2,
+            mb: 5,
+          }}
+        >
+          For professionals
+        </Typography>
+        <Grid
+          container
+          sx={{
+            flexDirection: "row",
+            width: { xs: "90%", md: "100%", lg: "80%" },
+            margin: "0 auto",
+            mb: 5,
+          }}
+        >
+          <InteractiveIcon />
+          <CustomizeIcon />
+          <RasterMapIcon />
+        </Grid>
+        <Typography
+          sx={{
+            fontSize: { xs: 16, md: 18, lg: 20 },
+            fontWeight: 400,
+            color: "white",
+            textAlign: "center",
+            width: "80%",
+            margin: "0 auto",
+            mb: 5,
+          }}
+        >
+          Advanced, interactive data visualization tool that tracks, analyzes
+          and displays key metrics across different datasets in real-time.
+          Clinicians, healthcare providers and scientists can make conclusions
+          on future courses of action for dengue outbreak management.
+        </Typography>
+        <StyledButton onClick={handleClick}>
+          <Typography
+            sx={{
+              fontWeight: 600,
+              fontSize: 15,
+            }}
+          >
+            Try now
+          </Typography>
+        </StyledButton>
+      </Grid>
+      <Grid
+        container
+        xs={12}
+        md={6}
+        lg={6}
         sx={{
-          borderRadius: 5,
-          boxShadow: 10,
-          width: { xs: "80%", md: "unset", lg: "unset" },
-          height: "auto",
-          margin: "0 auto",
-          mb: { xs: 5 },
+          overflow: "hidden",
         }}
-      />
+      >
+        <Box
+          component="img"
+          src={dashboardIntro}
+          sx={{
+            borderRadius: 5,
+            boxShadow: 10,
+            width: { xs: "80%", md: "unset", lg: "unset" },
+            height: "auto",
+            margin: "0 auto",
+            mb: { xs: 5 },
+          }}
+        />
+      </Grid>
     </Grid>
-  </Grid>
-);
+  );
+}
 
 export default DashboardIntro;

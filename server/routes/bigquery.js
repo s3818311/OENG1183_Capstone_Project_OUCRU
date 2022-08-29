@@ -7,9 +7,6 @@ const auth = {
 const bigquery = new BigQuery(auth);
 
 async function query(query_string) {
-  //   const query = `SELECT *
-  //       FROM \`micro-enigma-359206.dart.dynamic_world_land_cover\`
-  //       WHERE \`date\`="2015-2016"`;
   const query = query_string;
 
   const options = {
