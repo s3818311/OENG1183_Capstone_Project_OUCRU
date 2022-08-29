@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
-
-import { query } from "./bigquery.js";
+var query = require("./bigquery");
 
 router.get("/", function (req, res, next) {
   query(`SELECT * 
