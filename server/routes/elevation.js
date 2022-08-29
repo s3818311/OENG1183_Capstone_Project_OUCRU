@@ -4,7 +4,7 @@ var query = require("./bigquery");
 
 router.get("/", function (req, res, next) {
   query(`SELECT * 
-  FROM \`micro-enigma-359206.dart.hydrosheds_cond_ele\``)
+  FROM \`micro-enigma-359206.dart.hydrosheds_cond_ele\` ORDER BY \`elevation\` DESC`)
     .then((result) => res.send(result))
     .catch((err) => console.error("ERROR:", err));
 });
