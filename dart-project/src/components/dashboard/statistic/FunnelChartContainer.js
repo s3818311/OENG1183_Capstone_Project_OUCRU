@@ -48,8 +48,10 @@ async function getElevationData() {
 
 const FunnelChartContainer = (props) => {
   const [elevationData, setElevationData] = useState([{}]);
+  const [isBusy, setBusy] = useState(true);
 
   useEffect(() => {
+    setBusy(true);
     getElevationData().then((data) => {
       let processedData = [];
 
@@ -63,20 +65,27 @@ const FunnelChartContainer = (props) => {
         processedData.push(mockData);
       });
       setElevationData(processedData);
+      setBusy(false);
     });
   }, []);
 
   return (
     <Grid item xs={props.xs} md={props.md} lg={props.lg} sx={props.sx}>
-      <Paper
-        sx={{
-          p: 2,
-          height: 1200,
-        }}
-      >
-        <FunnelTitle />
-        <FunnelChart data={elevationData} />
-      </Paper>
+      {isBusy ? (
+        <Grid></Grid>
+      ) : (
+        <Grid>
+          <Paper
+            sx={{
+              p: 2,
+              height: 1200,
+            }}
+          >
+            <FunnelTitle />
+            <FunnelChart data={elevationData} />
+          </Paper>
+        </Grid>
+      )}
     </Grid>
   );
 };
