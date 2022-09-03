@@ -4,6 +4,7 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import ListSubheader from "@mui/material/ListSubheader";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import ListItem from "@mui/material/ListItem";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 import PropTypes from "prop-types";
@@ -74,6 +75,11 @@ export const mainListItems = (
       to={ROUTES.DASHBOARD.STATISTIC}
       primary="Statistic"
       icon={<BarChartIcon />}
+    />
+    <ListItemLink
+      to={ROUTES.DASHBOARD.QUERY}
+      primary="Query Builder"
+      icon={<QueryStatsIcon />}
     />
     <ListItemLink
       to={ROUTES.DASHBOARD.GUIDE}

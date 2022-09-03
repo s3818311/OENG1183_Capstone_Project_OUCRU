@@ -4,6 +4,7 @@ export const DASHBOARD = {
   DEFAULT: "/dashboard/*",
   OVERVIEW: "overview",
   STATISTIC: "statistic",
+  QUERY: "query",
   GUIDE: "guide",
 };
 
