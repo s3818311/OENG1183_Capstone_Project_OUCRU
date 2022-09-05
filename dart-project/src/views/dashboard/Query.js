@@ -21,13 +21,12 @@ const WardSelect = (props) => {
     } else {
       props.wardSetter(props.wards.filter((w) => w !== e.target.id));
     }
-    console.log(props.wards);
   };
 
   return (
     <div>
       {districts.map((d, d_idx) => {
-        if (props.selectedDistricts.indexOf(d) != -1)
+        if (props.selectedDistricts.indexOf(d) !== -1)
           return (
             <div key={d_idx}>
               <b>{d}:</b>{" "}
@@ -256,26 +255,60 @@ const ResponseTable = (props) => {
   const headers = Object.keys(queryData[0]);
 
   return (
-    <table>
-      <thead>
-        <tr>
-          {headers.map((h, h_idx) => {
-            return <th key={h_idx}>{h !== "date" ? wardIds[h] : "date"}</th>;
+    <div
+      style={{
+        width: "100%",
+        overflow: "auto",
+      }}
+    >
+      <table>
+        <thead>
+          <tr>
+            {headers.map((h, h_idx) => {
+              return (
+                <th
+                  key={h_idx}
+                  style={{
+                    "white-space": "nowrap",
+                    "border-style": "solid",
+                    "padding-left": "5px",
+                    "padding-right": "5px",
+                    "border-left-width": "1px",
+                    "border-right-width": "1px",
+                  }}
+                >
+                  {h !== "date" ? wardIds[h] : "date"}
+                </th>
+              );
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {queryData.map((row, r_idx) => {
+            return (
+              <tr key={r_idx}>
+                {Object.values(row).map((value, v_idx) => {
+                  return (
+                    <td
+                      key={v_idx}
+                      style={{
+                        "border-style": "solid",
+                        "border-left-width": "0px",
+                        "border-right-width": "1px",
+                        "border-top-width": "0px",
+                        "border-bottom-width": "1px",
+                      }}
+                    >
+                      {value}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
           })}
-        </tr>
-      </thead>
-      <tbody>
-        {queryData.map((row, r_idx) => {
-          return (
-            <tr key={r_idx}>
-              {Object.values(row).map((value, v_idx) => {
-                return <td key={v_idx}>{value}</td>;
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   );
 };
 
