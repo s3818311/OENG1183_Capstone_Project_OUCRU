@@ -4,6 +4,10 @@ import Toolbar from "@mui/material/Toolbar";
 import tableEmpty from "../../tempdata/query_builder_table_empty";
 import districtsWards from "../../tempdata/districts_wards";
 import wardIds from "../../tempdata/wards_id3";
+import { Accordion } from "@mui/material";
+import AccordionDetails from '@mui/material/AccordionDetails';
+import styled from "styled-components";
+
 
 const WardSelect = (props) => {
   const districts = Object.keys(districtsWards);
@@ -37,7 +41,7 @@ const WardSelect = (props) => {
                 </>
               );
             })}
-          </div>
+			</div>
         );
       })}
     </div>

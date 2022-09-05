@@ -83,7 +83,7 @@ export const mainListItems = (
     />
     <ListItemLink
       to={ROUTES.DASHBOARD.GUIDE}
-      primary="Guide"
+      primary="Customized View"
       icon={<FindInPageIcon />}
     />
   </React.Fragment>
