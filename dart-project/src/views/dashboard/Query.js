@@ -9,6 +9,7 @@ import ListItemText from "@mui/material/ListItemText";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
+import InputLabel from "@mui/material/InputLabel";
 
 import tableEmpty from "../../tempdata/query_builder_table_empty";
 import districtsWards from "../../tempdata/districts_wards";
@@ -34,7 +35,7 @@ const WardSelect = (props) => {
               <div
                 style={{
                   height: "50px",
-                  "line-height": "50px",
+                  lineHeight: "50px",
                   marginRight: "10px",
                   fontWeight: "bold",
                 }}
@@ -96,7 +97,6 @@ const MultiSelect = (props) => {
         width: 250,
       },
     },
-    getContentAnchorEl: null,
     anchorOrigin: {
       vertical: "bottom",
       horizontal: "center",
@@ -143,6 +143,28 @@ const MultiSelect = (props) => {
             <ListItemText primary={d} />
           </MenuItem>
         ))}
+      </Select>
+    </FormControl>
+  );
+};
+
+const DataSourceSelect = (props) => {
+  return (
+    <FormControl fullWidth>
+      <InputLabel id="datasource_id">Data source: </InputLabel>
+      <Select
+        labelId="datasource_id"
+        id="datasource_id"
+        value={props.datasource}
+        label="datasource"
+        onChange={(e) => {
+          props.dataSourceSetter(e.target.value);
+        }}
+      >
+        <MenuItem value={"chirps"}>CHIRPS - Rainfall Estimates</MenuItem>
+        <MenuItem value={"aphrodite_temperature"}>
+          APHRODITE - Daily Mean Temperature
+        </MenuItem>
       </Select>
     </FormControl>
   );
@@ -197,22 +219,10 @@ const QueryForm = (props) => {
         wardSetter={setWards}
         selectedDistricts={selectedDistricts}
       />
-      <label htmlFor="datasource_id">
-        Data source:{" "}
-        <select
-          id="datasource_id"
-          name="datasource"
-          onChange={(e) => {
-            setDataSource(e.target.value);
-          }}
-          defaultValue="chirps"
-        >
-          <option value="chirps">CHIRPS - Rainfall Estimates</option>
-          <option value="aphrodite_temperature">
-            APHRODITE - Daily Mean Temperature
-          </option>
-        </select>
-      </label>
+      <DataSourceSelect
+        datasource={datasource}
+        dataSourceSetter={setDataSource}
+      />
       <label htmlFor="startdate_id">
         Start date:{" "}
         <input
@@ -282,12 +292,12 @@ const ResponseTable = (props) => {
                 <th
                   key={h_idx}
                   style={{
-                    "white-space": "nowrap",
-                    "border-style": "solid",
-                    "padding-left": "5px",
-                    "padding-right": "5px",
-                    "border-left-width": "1px",
-                    "border-right-width": "1px",
+                    whiteSpace: "nowrap",
+                    borderStyle: "solid",
+                    paddingLeft: "5px",
+                    paddingRight: "5px",
+                    borderLeftWidth: "1px",
+                    borderRightWidth: "1px",
                   }}
                 >
                   {h !== "date" ? wardIds[h] : "date"}
@@ -305,11 +315,11 @@ const ResponseTable = (props) => {
                     <td
                       key={v_idx}
                       style={{
-                        "border-style": "solid",
-                        "border-left-width": "0px",
-                        "border-right-width": "1px",
-                        "border-top-width": "0px",
-                        "border-bottom-width": "1px",
+                        borderStyle: "solid",
+                        borderLeftWidth: "0px",
+                        borderRightWidth: "1px",
+                        borderTopWidth: "0px",
+                        borderBottomWidth: "1px",
                       }}
                     >
                       {value}
