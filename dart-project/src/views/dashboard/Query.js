@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from "moment";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Select from "@mui/material/Select";
@@ -10,6 +11,10 @@ import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import InputLabel from "@mui/material/InputLabel";
+import TextField from "@mui/material/TextField";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
 import tableEmpty from "../../tempdata/query_builder_table_empty";
 import districtsWards from "../../tempdata/districts_wards";
@@ -170,6 +175,44 @@ const DataSourceSelect = (props) => {
   );
 };
 
+const DatePicker = (props) => {
+  return (
+    <LocalizationProvider dateAdapter={AdapterMoment}>
+      <DesktopDatePicker
+        label={props.label}
+        inputFormat="DD/MM/YYYY"
+        value={props.startDate}
+        minDate={props.avaiDateRange[props.datasource][0]}
+        maxDate={props.avaiDateRange[props.datasource][1]}
+        onChange={(newValue) => {
+          props.startDateSetter(newValue);
+        }}
+        renderInput={(params) => <TextField {...params} />}
+      />
+    </LocalizationProvider>
+  );
+};
+
+const SortOrderSelect = (props) => {
+  return (
+    <FormControl fullWidth>
+      <InputLabel id="sorting_id">Sort date by: </InputLabel>
+      <Select
+        labelId="sorting_id"
+        id="sorting_id"
+        value={props.sortorder}
+        label="sortorder"
+        onChange={(e) => {
+          props.sortOrderSetter(e.target.value);
+        }}
+      >
+        <MenuItem value={"ascending"}>Ascending</MenuItem>
+        <MenuItem value={"descending"}>Descending</MenuItem>
+      </Select>
+    </FormControl>
+  );
+};
+
 const QueryForm = (props) => {
   const avaiDateRange = {
     chirps: ["2015-01-01", "2022-06-30"],
@@ -177,8 +220,10 @@ const QueryForm = (props) => {
   };
 
   const [datasource, setDataSource] = useState("chirps");
-  const [startDate, setStartDate] = useState(avaiDateRange[datasource][0]);
-  const [endDate, setEndDate] = useState(avaiDateRange[datasource][1]);
+  const [startDate, setStartDate] = useState(
+    moment(avaiDateRange[datasource][0])
+  );
+  const [endDate, setEndDate] = useState(moment(avaiDateRange[datasource][1]));
   const [sortorder, setSortOrder] = useState("ascending");
   const [selectedDistricts, setSelectedDistricts] = useState([]);
   const [wards, setWards] = useState([]);
@@ -189,8 +234,8 @@ const QueryForm = (props) => {
     const payload = JSON.stringify({
       wards: wards,
       datasource: datasource,
-      startDate: startDate,
-      endDate: endDate,
+      startDate: startDate.format("YYYY-MM-DD"),
+      endDate: endDate.format("YYYY-MM-DD"),
       sortorder: sortorder,
     });
     console.log("form payload: " + payload);
@@ -223,35 +268,22 @@ const QueryForm = (props) => {
         datasource={datasource}
         dataSourceSetter={setDataSource}
       />
-      <label htmlFor="startdate_id">
-        Start date:{" "}
-        <input
-          type="date"
-          id="startdate_id"
-          name="startdate"
-          value={startDate}
-          min={avaiDateRange[datasource][0]}
-          max={avaiDateRange[datasource][1]}
-          onChange={(e) => {
-            setStartDate(e.target.value);
-          }}
-        ></input>
-      </label>
-      <label htmlFor="enddate_id">
-        End date:{" "}
-        <input
-          type="date"
-          id="enddate_id"
-          value={endDate}
-          min={avaiDateRange[datasource][0]}
-          max={avaiDateRange[datasource][1]}
-          name="enddate"
-          onChange={(e) => {
-            setEndDate(e.target.value);
-          }}
-        ></input>
-      </label>
-      <label htmlFor="sorting_id">
+      <DatePicker
+        label={"Start Date"}
+        startDate={startDate}
+        avaiDateRange={avaiDateRange}
+        datasource={datasource}
+        startDateSetter={setStartDate}
+      />
+      <DatePicker
+        label={"End Date"}
+        startDate={endDate}
+        avaiDateRange={avaiDateRange}
+        datasource={datasource}
+        startDateSetter={setEndDate}
+      />
+      <SortOrderSelect sortorder={sortorder} sortOrderSetter={setSortOrder} />
+      {/* <label htmlFor="sorting_id">
         Sort date by:{" "}
         <select
           id="sorting_id"
@@ -264,7 +296,7 @@ const QueryForm = (props) => {
           <option value="ascending">Ascending</option>
           <option value="descending">Descending</option>
         </select>
-      </label>
+      </label> */}
       <button form="query-form" type="submit">
         Query
       </button>
