@@ -1,30 +1,23 @@
-// import React from 'react';
-
-// const Guide = () => { 
-//     // return (
-//     //     <div>
-//     //         <h2>View 3</h2>
-//     //     </div>
-//     // );
-// };
-
-
-// export default Guide;
+import { CardMedia,Card } from '@mui/material';
 import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import "./frame.css"
+import { MDBContainer, MDBIframe } from "mdbreact";
+
 const IframeCustomized = styled.div`
   background-color: white;
+  overflow: hidden;
+  width: 100%;
+  height: 100%
+
 `;
+
 function Guide (){
-		return <div>
-			<div>Interactive Report</div>
-			<IframeCustomized> 
-			<iframe src="https://customized-dashboard-deploy.vercel.app/" width="1430" height ="1300" />;
-			{/* <iframe src="https://baonhi3008.github.io/DART-testing/" width="1570" height ="1300" />; */}
-			</IframeCustomized>
-			
-		</div>
-	
+		return (
+			<div className="container">
+				<iframe className="responsive-iframe" src="https://customized-dashboard-deploy.vercel.app/"></iframe>
+			</div>
+		  );
 }
 export default Guide ;
