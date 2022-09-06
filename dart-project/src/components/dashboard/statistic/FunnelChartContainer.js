@@ -24,7 +24,7 @@ const FunnelChart = (props) => (
     interpolation="linear"
     shapeBlending={0.65}
     valueFormat=" >-.4s"
-    colors={{ scheme: "spectral" }}
+    colors={{ scheme: "brown_blueGreen" }}
     borderWidth={4}
     borderColor="black"
     borderOpacity={1}
