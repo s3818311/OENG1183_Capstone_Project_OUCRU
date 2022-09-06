@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const corsOption = {
   origin: ["http://localhost:3000"],
 };
-app.use(cors(corsOption));
+app.use(cors());
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/elevation", elevationRouter);
