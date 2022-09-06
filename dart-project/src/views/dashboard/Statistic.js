@@ -21,11 +21,11 @@ const Statistic = () => {
       }}
     >
       <Toolbar />
-      <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
+      {/* <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
         <Grid container spacing={2}>
           <LineChartContainer xs md lg />
         </Grid>
-      </Box>
+      </Box> */}
       <Box sx={{ mt: 2, mb: 2, ml: 2, mr: 2 }}>
         <Grid container spacing={2}>
           <PieChartContainer xs={12} md={12} lg={12} />

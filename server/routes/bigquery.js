@@ -21,8 +21,8 @@ async function query(query_string) {
   const [rows] = await job.getQueryResults();
 
   // Print the results
-  console.log("Rows:");
-  rows.forEach((row) => console.log(row));
+  // console.log("Rows:");
+  // rows.forEach((row) => console.log(row));
 
   return rows;
 }

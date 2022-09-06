@@ -10,6 +10,7 @@ var usersRouter = require("./routes/users");
 var elevationRouter = require("./routes/elevation");
 var landcoverRouter = require("./routes/landcover");
 var chirpsRouter = require("./routes/chirps");
+var queryRouter = require("./routes/query");
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use("/users", usersRouter);
 app.use("/elevation", elevationRouter);
 app.use("/landcover", landcoverRouter);
 app.use("/chirps", chirpsRouter);
+app.use("/query", queryRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
