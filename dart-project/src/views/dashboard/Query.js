@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import moment from "moment";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Checkbox from "@mui/material/Checkbox";
-import ListItemText from "@mui/material/ListItemText";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormGroup from "@mui/material/FormGroup";
-import InputLabel from "@mui/material/InputLabel";
-import TextField from "@mui/material/TextField";
+import {
+  Box,
+  Toolbar,
+  Select,
+  MenuItem,
+  ListItemIcon,
+  Checkbox,
+  ListItemText,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  InputLabel,
+  TextField,
+  Button,
+} from "@mui/material";
+
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
+// json data
 import tableEmpty from "../../tempdata/query_builder_table_empty";
 import districtsWards from "../../tempdata/districts_wards";
 import wardIds from "../../tempdata/wards_id3";
@@ -120,8 +125,9 @@ const MultiSelect = (props) => {
         display: "flex",
       }}
     >
+      <InputLabel id="multiselect-id">District(s): </InputLabel>
       <Select
-        labelId="multiselect-label"
+        labelId="multiselect-id"
         multiple
         value={multiSelected}
         onChange={multiselectChange}
@@ -283,23 +289,9 @@ const QueryForm = (props) => {
         startDateSetter={setEndDate}
       />
       <SortOrderSelect sortorder={sortorder} sortOrderSetter={setSortOrder} />
-      {/* <label htmlFor="sorting_id">
-        Sort date by:{" "}
-        <select
-          id="sorting_id"
-          name="sortorder"
-          onChange={(e) => {
-            setSortOrder(e.target.value);
-          }}
-          defaultValue="ascending"
-        >
-          <option value="ascending">Ascending</option>
-          <option value="descending">Descending</option>
-        </select>
-      </label> */}
-      <button form="query-form" type="submit">
-        Query
-      </button>
+      <Button variant="contained" form="query-form" type="submit">
+        QUERY
+      </Button>
     </form>
   );
 };
