@@ -2,6 +2,8 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { ResponsivePie } from "@nivo/pie";
 import Typography from "@mui/material/Typography";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
 
 const PieTitle = (props) => {
@@ -19,18 +21,19 @@ const PieTitle = (props) => {
 
 const StatisticPieChart = (props) => {
   const [data, setData] = useState(props.data);
-  const landCoverColor = {
-    water: "#419bdf",
-    trees: "#397d49",
-    grass: "#88b053",
-    flooded_vegetation: "#7a87c6",
-    crops: "#e49635",
-    shrub_and_scrub: "#d4c35a",
-    built: "#c4281b",
-    bare: "#a59b8f",
-  };
 
   useEffect(() => {
+    const landCoverColor = {
+      water: "#419bdf",
+      trees: "#397d49",
+      grass: "#88b053",
+      flooded_vegetation: "#7a87c6",
+      crops: "#e49635",
+      shrub_and_scrub: "#d4c35a",
+      built: "#c4281b",
+      bare: "#a59b8f",
+    };
+
     let processedData = [];
 
     let landCoverTitle = Object.keys(data);
@@ -149,7 +152,11 @@ const PieChartContainer = (props) => {
   return (
     <Grid item xs={props.xs} md={props.md} lg={props.lg} sx={props.sx}>
       {isBusy ? (
-        <Grid></Grid>
+        <Grid>
+          <Grid container sx={{ width: "100%", justifyContent: "center" }}>
+            <CircularProgress size={"10rem"} />
+          </Grid>
+        </Grid>
       ) : (
         <Grid>
           {landCoverData &&
