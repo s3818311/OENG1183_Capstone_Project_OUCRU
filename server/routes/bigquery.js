@@ -1,7 +1,13 @@
 const { BigQuery } = require("@google-cloud/bigquery");
 const auth = {
-  keyFilename: "micro-enigma-359206-1dd3be2aaa78.json",
   projectId: "micro-enigma-359206",
+  credentials: {
+    client_email: process.env.GOOGLE_CREDENTIALS_CLIENT_EMAIL,
+    private_key: process.env.GOOGLE_CREDENTIALS_PRIVATE_KEY.replace(
+      /\\n/g,
+      "\n"
+    ),
+  },
 };
 
 const bigquery = new BigQuery(auth);
@@ -19,10 +25,6 @@ async function query(query_string) {
 
   // Wait for the query to finish
   const [rows] = await job.getQueryResults();
-
-  // Print the results
-  // console.log("Rows:");
-  // rows.forEach((row) => console.log(row));
 
   return rows;
 }
