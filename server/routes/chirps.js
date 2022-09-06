@@ -3,22 +3,27 @@ var router = express.Router();
 var query = require("./bigquery");
 var fs = require("fs");
 
-const col_filter = (prefix) => {
-  var hcmc_id3 = JSON.parse(fs.readFileSync("hcmc_id3_nogeo.json"));
-  hcmc_id3 = hcmc_id3.map((ele) => Object.keys(ele)[0]);
-  ids = hcmc_id3.filter((id) => id.startsWith(prefix));
+var dis_wards = JSON.parse(fs.readFileSync("districts_wards.json"));
+
+const col_filter = (selected_dis) => {
+  ids = dis_wards[selected_dis].map((w) => Object.keys(w)[0]);
   ids = ids.map((id) => id.replace(/\./g, "_"));
-  return [ids.join("+"), ids.length];
+  const select_str = `(${ids.join("+")}) / ${ids.length} 
+  AS \`${selected_dis
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .replace("Đ", "D")
+    .replace(" ", "")}_avg\``;
+  return select_str;
 };
 
 router.get("/", function (req, res, next) {
-  let [selected_cols, cnt] = col_filter("VNM.25.1.");
-  //   console.log(cnt);
-  let query_string = `SELECT \`date\`, (${selected_cols}) / ${cnt} AS \`average\`
+  let select_stmt = Object.keys(dis_wards).map((d) => col_filter(d));
+  let query_string = `SELECT \`date\`, ${select_stmt.join(",")}
   FROM \`micro-enigma-359206.dart.chirps\`
-  WHERE \`date\` BETWEEN "2020.01.01" AND "2021.01.01"
+  WHERE \`date\` BETWEEN "2020.01.01" AND "2020.02.01"
   ORDER BY \`date\``;
-  //   console.log(query_string);
+  // console.log(query_string);
   query(query_string)
     .then((result) => res.send(result))
     .catch((err) => console.error("ERROR:", err));
