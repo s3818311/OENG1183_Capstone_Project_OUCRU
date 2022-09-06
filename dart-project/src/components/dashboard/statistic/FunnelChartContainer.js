@@ -2,6 +2,7 @@ import { ResponsiveFunnel } from "@nivo/funnel";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useEffect, useState } from "react";
 
 const FunnelTitle = () => {
@@ -36,6 +37,7 @@ const FunnelChart = (props) => (
     motionConfig="gentle"
   />
 );
+
 async function getElevationData() {
   try {
     let response = await fetch("http://localhost:9000/elevation");
@@ -72,7 +74,11 @@ const FunnelChartContainer = (props) => {
   return (
     <Grid item xs={props.xs} md={props.md} lg={props.lg} sx={props.sx}>
       {isBusy ? (
-        <Grid></Grid>
+        <Grid>
+          <Grid container sx={{ width: "100%", justifyContent: "center" }}>
+            <CircularProgress size={"10rem"} />
+          </Grid>
+        </Grid>
       ) : (
         <Grid>
           <Paper
