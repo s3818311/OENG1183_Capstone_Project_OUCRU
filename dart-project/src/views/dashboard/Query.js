@@ -7,6 +7,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
 import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
 
 import tableEmpty from "../../tempdata/query_builder_table_empty";
 import districtsWards from "../../tempdata/districts_wards";
@@ -28,23 +30,34 @@ const WardSelect = (props) => {
       {districts.map((d, d_idx) => {
         if (props.selectedDistricts.indexOf(d) !== -1)
           return (
-            <div key={d_idx}>
-              <b>{d}:</b>{" "}
+            <FormGroup row={true} key={d_idx}>
+              <div
+                style={{
+                  height: "50px",
+                  "line-height": "50px",
+                  marginRight: "10px",
+                  fontWeight: "bold",
+                }}
+              >
+                {d}:
+              </div>
               {districtsWards[d].map((ward, w_idx) => {
                 let k = Object.keys(ward);
                 return (
-                  <div key={w_idx} style={{ display: "inline-block" }}>
-                    <input
-                      type="checkbox"
-                      id={k[0]}
-                      name="wards"
-                      onChange={handleChange}
-                    ></input>
-                    <label htmlFor={k[0]}> {ward[k[0]]} </label>
-                  </div>
+                  <FormControlLabel
+                    key={w_idx}
+                    control={
+                      <Checkbox
+                        name="wards"
+                        onChange={handleChange}
+                        id={k[0]}
+                      />
+                    }
+                    label={ward[k[0]]}
+                  />
                 );
               })}
-            </div>
+            </FormGroup>
           );
         else return <div key={d_idx}></div>;
       })}
