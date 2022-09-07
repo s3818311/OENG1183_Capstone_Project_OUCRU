@@ -91,7 +91,7 @@ const StatisticBarChart = (props) => (
 
 async function getLandCoverData() {
   try {
-    let response = await fetch("//3.80.95.119:9000/landcover");
+    let response = await fetch("https://digital-market-app.link/landcover");
     return await response.json();
   } catch (err) {
     console.error(err);

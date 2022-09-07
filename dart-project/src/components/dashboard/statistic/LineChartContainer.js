@@ -116,7 +116,7 @@ const LineChartContainer = (props) => {
   useEffect(() => {
     async function fetchChirpsData() {
       setBusy(true);
-      const res = await fetch("//3.80.95.119:9000/chirps");
+      const res = await fetch("https://digital-market-app.link/chirps");
       const json = await res.json();
 
       setChirpsData(json);

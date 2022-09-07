@@ -132,6 +132,7 @@ const StatisticPieChart = (props) => {
     />
   );
 };
+
 const PieChartContainer = (props) => {
   const [landCoverData, setLandCoverData] = useState([]);
   const [isBusy, setBusy] = useState(true);
@@ -139,7 +140,7 @@ const PieChartContainer = (props) => {
   useEffect(() => {
     async function fetchLandCoverData() {
       setBusy(true);
-      const res = await fetch("//3.80.95.119:9000/landcover");
+      const res = await fetch("https://digital-market-app.link/landcover");
       const json = await res.json();
 
       setLandCoverData(json);

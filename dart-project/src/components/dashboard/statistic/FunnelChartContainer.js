@@ -40,7 +40,7 @@ const FunnelChart = (props) => (
 
 async function getElevationData() {
   try {
-    let response = await fetch("//3.80.95.119:9000/elevation");
+    let response = await fetch("https://digital-market-app.link/elevation");
     return await response.json();
   } catch (err) {
     console.error(err);
