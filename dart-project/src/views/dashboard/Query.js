@@ -272,7 +272,7 @@ const QueryForm = (props) => {
     });
     console.log("form payload: " + payload);
 
-    const res = await fetch("http://3.80.95.119:9000/query", {
+    const res = await fetch("//3.80.95.119:9000/query", {
       method: "POST",
       headers: {
         Accept: "application/json",
