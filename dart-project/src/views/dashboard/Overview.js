@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
 import HCMChoroplethContainer from "../../components/dashboard/overview/HCMChoroplethContainer";
-import MyMap from "../../components/dashboard/overview/TempMap";
+import MyMapFinalContainer from "../../components/dashboard/overview/TempMap";
 
 const Overview = () => {
   return (
@@ -22,7 +22,7 @@ const Overview = () => {
       <Toolbar />
       <Box sx={{ mt: 4, mb: 4, ml: 3, mr: 3 }}>
         <Grid container spacing={3}>
-          <MyMap />
+          <MyMapFinalContainer xs={12} md={12} lg={12}/>
         </Grid>
       </Box>
     </Box>
